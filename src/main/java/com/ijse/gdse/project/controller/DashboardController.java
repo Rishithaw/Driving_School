@@ -153,8 +153,8 @@ public class DashboardController implements Initializable {
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
             //  -------- Loaded anchor edges are bound to the content anchor --------
 //      (1) Bind the loaded FXML to all edges of the content anchorPane
-            load.prefWidthProperty().bind(ancPane.widthProperty());
-            load.prefHeightProperty().bind(ancPane.heightProperty());
+//            load.prefWidthProperty().bind(ancPane.widthProperty());
+//            load.prefHeightProperty().bind(ancPane.heightProperty());
 
 //      (2) Bind the loaded FXML to all edges of the AnchorPane
 //            AnchorPane.setTopAnchor(load, 0.0);

@@ -184,7 +184,7 @@
             </HBox>
          </children>
       </Pane>
-      <AnchorPane layoutX="140.0" opacity="0.78" prefHeight="480.0" prefWidth="601.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="140.0" opacity="0.78" prefHeight="480.0" prefWidth="601.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="142.0">
          <children>
             <ImageView fitHeight="480.0" fitWidth="606.0" pickOnBounds="true">
                <image>

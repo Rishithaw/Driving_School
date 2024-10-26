@@ -7,13 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class AppInitializer extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
     @Override
     public void start(Stage stage) throws Exception {
         Parent load = FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"));
         Scene scene = new Scene(load);
         stage.setScene(scene);
         stage.setTitle("BetterDrive");
-        //stage.setFullScreen(true);
         stage.show();
     }
 }
