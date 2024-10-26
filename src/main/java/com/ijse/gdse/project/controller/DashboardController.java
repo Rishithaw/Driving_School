@@ -144,6 +144,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void vehicleOnAction(ActionEvent event) {
+        System.out.println("CLICKED");
         navigateTo("/view/VehicleView.fxml");
     }
 
