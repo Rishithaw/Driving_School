@@ -12,7 +12,7 @@ public class AppInitializer extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        Parent load = FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("/view/StartPageView.fxml"));
         Scene scene = new Scene(load);
         stage.setScene(scene);
         stage.setTitle("BetterDrive");
