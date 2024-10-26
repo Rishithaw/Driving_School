@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     @FXML
-    private AnchorPane anc;
+    private AnchorPane ancPane;
 
     @FXML
     private Button btnBookings;
@@ -149,9 +149,19 @@ public class DashboardController implements Initializable {
 
     private void navigateTo(String fxmlPath) {
         try {
-            anc.getChildren().clear();
+            ancPane.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
-            anc.getChildren().add(load);
+            //  -------- Loaded anchor edges are bound to the content anchor --------
+//      (1) Bind the loaded FXML to all edges of the content anchorPane
+            load.prefWidthProperty().bind(ancPane.widthProperty());
+            load.prefHeightProperty().bind(ancPane.heightProperty());
+
+//      (2) Bind the loaded FXML to all edges of the AnchorPane
+//            AnchorPane.setTopAnchor(load, 0.0);
+//            AnchorPane.setRightAnchor(load, 0.0);
+//            AnchorPane.setBottomAnchor(load, 0.0);
+//            AnchorPane.setLeftAnchor(load, 0.0);
+            ancPane.getChildren().add(load);
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR,"Failed to load").show();
         }
@@ -159,6 +169,9 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigateTo("/view/HomePageView.fxml.fxml");
+        cir.setFill(new ImagePattern(imgProfile.getImage()));
+        rec1.setFill(new ImagePattern(imgAccident.getImage()));
+        rec2.setFill(new ImagePattern(imgTire.getImage()));
+        rec3.setFill(new ImagePattern(imgService.getImage()));
     }
 }

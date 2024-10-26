@@ -104,5 +104,6 @@
             </Button>
          </children>
       </HBox>
+      <AnchorPane layoutX="6.0" layoutY="-200.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
