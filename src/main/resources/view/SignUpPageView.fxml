@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ancPane" prefHeight="480.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.SignUpPageController">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="740.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../images/pictures/Background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="366.0" layoutX="159.0" layoutY="72.0" opacity="0.67" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50; -fx-stroke-width: 0;" width="422.0" />
+      <Button fx:id="btnSignIn" layoutX="263.0" layoutY="362.0" mnemonicParsing="false" onAction="#signInOnAction" prefHeight="37.0" prefWidth="194.0" style="-fx-background-color: F2380F; -fx-background-radius: 10;" text="Sign in" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Text fill="#573d1d" layoutX="14.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BetterDrive">
+         <font>
+            <Font name="Pristina" size="30.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="imgDriver" fitHeight="38.0" fitWidth="43.0" layoutX="126.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/icons8-driver-100.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtName" layoutX="169.0" layoutY="124.0" opacity="0.45" prefHeight="26.0" prefWidth="402.0" style="-fx-background-color: F2380F;" />
+      <TextField fx:id="txtAddress" layoutX="169.0" layoutY="192.0" opacity="0.45" prefHeight="26.0" prefWidth="402.0" style="-fx-background-color: F2380F;" />
+      <TextField fx:id="txtUsername" layoutX="169.0" layoutY="258.0" opacity="0.45" prefHeight="26.0" prefWidth="402.0" style="-fx-background-color: F2380F;" />
+      <TextField fx:id="txtPassword" layoutX="169.0" layoutY="321.0" opacity="0.45" prefHeight="26.0" prefWidth="402.0" style="-fx-background-color: F2380F;" />
+      <ImageView fx:id="imgName" fitHeight="30.0" fitWidth="30.0" layoutX="173.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/icons8-username-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgAddress" fitHeight="30.0" fitWidth="30.0" layoutX="172.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/icons8-address-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgUsername" fitHeight="30.0" fitWidth="30.0" layoutX="173.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/icons8-username-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgPassword" fitHeight="30.0" fitWidth="30.0" layoutX="173.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/icons8-password-32.png" />
+         </image>
+      </ImageView>
+      <Text fill="#f2380f" layoutX="213.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+         <font>
+            <Font name="Book Antiqua" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#f2380f" layoutX="211.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font name="Book Antiqua" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#f2380f" layoutX="211.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#f2380f" layoutX="211.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="Book Antiqua" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="256.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
+      <Button fx:id="btnLogin" layoutX="397.0" layoutY="409.0" mnemonicParsing="false" onAction="#loginOnAction" style="-fx-background-color: none;" text="Login here" textFill="#f2380f" />
+   </children>
+</AnchorPane>
