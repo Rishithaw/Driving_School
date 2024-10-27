@@ -26,13 +26,13 @@ public class LessonController {
     private Circle cir;
 
     @FXML
-    private TableColumn<?, ?> colDesc;
-
-    @FXML
     private TableColumn<?, ?> colDuration;
 
     @FXML
     private TableColumn<?, ?> colID;
+
+    @FXML
+    private TableColumn<?, ?> colInstructor;
 
     @FXML
     private TableColumn<?, ?> colStName;
@@ -50,10 +50,10 @@ public class LessonController {
     private TableView<?> tblLesson;
 
     @FXML
-    private TextField txtDesc;
+    private TextField txtDuration;
 
     @FXML
-    private TextField txtDuration;
+    private TextField txtInstructor;
 
     @FXML
     private TextField txtName;

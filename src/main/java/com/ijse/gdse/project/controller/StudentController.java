@@ -30,13 +30,16 @@ public class StudentController {
     private TableColumn<?, ?> colAddress;
 
     @FXML
+    private TableColumn<?, ?> colAssist;
+
+    @FXML
     private TableColumn<?, ?> colDOB;
 
     @FXML
-    private TableColumn<?, ?> colGender;
+    private TableColumn<?, ?> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colHelp;
+    private TableColumn<?, ?> colGender;
 
     @FXML
     private TableColumn<?, ?> colID;
@@ -63,10 +66,13 @@ public class StudentController {
     private TextField txtAddress;
 
     @FXML
-    private TextField txtGender;
+    private TextField txtAssist;
 
     @FXML
-    private TextField txtHelp;
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtGender;
 
     @FXML
     private TextField txtName;
@@ -85,12 +91,12 @@ public class StudentController {
     }
 
     @FXML
-    void updateOnAction(ActionEvent event) {
+    void onClickTable(MouseEvent event) {
 
     }
 
     @FXML
-    void onClickTable(MouseEvent event) {
+    void updateOnAction(ActionEvent event) {
 
     }
 

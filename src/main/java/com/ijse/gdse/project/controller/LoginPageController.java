@@ -39,7 +39,6 @@ public class LoginPageController {
     @FXML
     void loginOnAction(ActionEvent event) throws IOException {
         anc.getChildren().clear();
-        //AnchorPane load = FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"));
         AnchorPane load = FXMLLoader.load(getClass().getResource("/view/MainLayout.fxml"));
         anc.getChildren().add(load);
     }
