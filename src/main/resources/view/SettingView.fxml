@@ -9,7 +9,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.SettingController">
    <children>
       <ImageView fitHeight="522.0" fitWidth="667.0" pickOnBounds="true">
@@ -28,11 +27,11 @@
             <Font name="Book Antiqua" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="41.0" layoutY="286.0" prefHeight="31.0" prefWidth="304.0" promptText="Name" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtName" layoutX="41.0" layoutY="286.0" prefHeight="31.0" prefWidth="304.0" promptText="Name" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <Button layoutX="509.0" layoutY="286.0" mnemonicParsing="false" onAction="#changeNameOnAction" prefHeight="31.0" prefWidth="58.0" text="Change" />
-      <TextField fx:id="txtUser" layoutX="41.0" layoutY="346.0" prefHeight="31.0" prefWidth="304.0" promptText="Username" style="-fx-background-color: none; -fx-border-color: #000000;" />
+      <TextField fx:id="txtUser" layoutX="41.0" layoutY="346.0" prefHeight="31.0" prefWidth="304.0" promptText="Username" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <Button layoutX="509.0" layoutY="346.0" mnemonicParsing="false" onAction="#changeUserOnAction" prefHeight="31.0" prefWidth="58.0" text="Change" />
-      <TextField fx:id="txtEmail" layoutX="41.0" layoutY="408.0" prefHeight="31.0" prefWidth="304.0" promptText="Email" />
+      <TextField fx:id="txtEmail" layoutX="41.0" layoutY="408.0" prefHeight="31.0" prefWidth="304.0" promptText="Email" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <Button layoutX="509.0" layoutY="408.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="31.0" prefWidth="58.0" text="Change" />
       <Button layoutX="502.0" layoutY="467.0" mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="31.0" prefWidth="65.0" text="Confirm" />
       <Button layoutX="593.0" layoutY="467.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="52.0" text="Cancel" />
