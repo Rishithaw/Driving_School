@@ -144,7 +144,6 @@ public class DashboardController implements Initializable {
 
     @FXML
     void vehicleOnAction(ActionEvent event) {
-        System.out.println("CLICKED");
         navigateTo("/view/VehicleView.fxml");
     }
 
@@ -152,16 +151,8 @@ public class DashboardController implements Initializable {
         try {
             ancPane.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
-            //  -------- Loaded anchor edges are bound to the content anchor --------
-//      (1) Bind the loaded FXML to all edges of the content anchorPane
             load.prefWidthProperty().bind(ancPane.widthProperty());
             load.prefHeightProperty().bind(ancPane.heightProperty());
-
-//      (2) Bind the loaded FXML to all edges of the AnchorPane
-//            AnchorPane.setTopAnchor(load, 0.0);
-//            AnchorPane.setRightAnchor(load, 0.0);
-//            AnchorPane.setBottomAnchor(load, 0.0);
-//            AnchorPane.setLeftAnchor(load, 0.0);
             ancPane.getChildren().add(load);
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR,"Failed to load").show();
