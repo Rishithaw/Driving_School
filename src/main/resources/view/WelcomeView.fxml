@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.WelcomeController">
    <children>
       <ImageView fitHeight="522.0" fitWidth="667.0" pickOnBounds="true">
@@ -49,7 +48,7 @@
          </font>
       </Text>
       <Text fill="#0000006f" layoutX="273.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Things to check after being in an accident)" />
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
             <Image url="@../images/icons/icons8-arrow-50.png" />
          </image>
@@ -79,7 +78,7 @@
          </font>
       </Text>
       <Text fill="#0000006f" layoutX="273.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Tools, methods, problems faced)" />
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
             <Image url="@../images/icons/icons8-arrow-50.png" />
          </image>
@@ -109,18 +108,18 @@
          </font>
       </Text>
       <Text fill="#0000006f" layoutX="273.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(When and how, reading the manual)" />
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
             <Image url="@../images/icons/icons8-arrow-50.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="450.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="617.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="399.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="566.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pictures/Profile.jpg" />
          </image>
       </ImageView>
-      <Circle fx:id="cir" fill="WHITE" layoutX="629.0" layoutY="38.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="cir" fill="WHITE" layoutX="578.0" layoutY="38.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="92.0" layoutY="93.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="162.0" />
       <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="92.0" layoutY="224.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="162.0" />
       <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="92.0" layoutY="355.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="162.0" />
