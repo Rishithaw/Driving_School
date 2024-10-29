@@ -1,6 +1,7 @@
 package com.ijse.gdse.project.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,13 +25,18 @@ public class MainLayoutController implements Initializable {
     private ImageView imgDriver;
 
     @FXML
-    void LogoutOnAction(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to logout?", ButtonType.YES, ButtonType.NO);
-        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+    void LogoutImgOnAction(MouseEvent event) {
+        handleLogout(event);
+    }
 
-        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES){
-            navigateTo("/view/LoginPageView.fxml");
-        }
+    @FXML
+    void LogoutOnAction(ActionEvent event) {
+        handleLogout(event);
+    }
+
+    @FXML
+    void SettingImgOnAction(MouseEvent event) {
+        navigateTo("/view/SettingView.fxml");
     }
 
     @FXML
@@ -39,8 +45,18 @@ public class MainLayoutController implements Initializable {
     }
 
     @FXML
+    void bookingImgOnAction(MouseEvent event) {
+        navigateTo("/view/BookingView.fxml");
+    }
+
+    @FXML
     void bookingOnAction(ActionEvent event) {
         navigateTo("/view/BookingView.fxml");
+    }
+
+    @FXML
+    public void dashBoardImgOnAction(MouseEvent mouseEvent) {
+        navigateTo("/view/DashBoardView.fxml");
     }
 
     @FXML
@@ -49,8 +65,18 @@ public class MainLayoutController implements Initializable {
     }
 
     @FXML
+    void lessonImgOnAction(MouseEvent event) {
+        navigateTo("/view/LessonView.fxml");
+    }
+
+    @FXML
     void lessonOnAction(ActionEvent event) {
         navigateTo("/view/LessonView.fxml");
+    }
+
+    @FXML
+    void serviceImgOnAction(MouseEvent event) {
+        navigateTo("/view/ServiceView.fxml");
     }
 
     @FXML
@@ -59,8 +85,18 @@ public class MainLayoutController implements Initializable {
     }
 
     @FXML
+    void paymentImgOnAction(MouseEvent event) {
+        navigateTo("/view/PaymentView.fxml");
+    }
+
+    @FXML
     void paymentOnAction(ActionEvent event) {
         navigateTo("/view/PaymentView.fxml");
+    }
+
+    @FXML
+    void salaryImgOnAction(MouseEvent event) {
+        navigateTo("/view/SalaryView.fxml");
     }
 
     @FXML
@@ -69,13 +105,28 @@ public class MainLayoutController implements Initializable {
     }
 
     @FXML
+    void studentImgOnAction(MouseEvent event) {
+        navigateTo("/view/StudentView.fxml");
+    }
+
+    @FXML
     void studentOnAction(ActionEvent event) {
         navigateTo("/view/StudentView.fxml");
     }
 
     @FXML
+    void testImgOnAction(MouseEvent event) {
+        navigateTo("/view/TestView.fxml");
+    }
+
+    @FXML
     void testOnAction(ActionEvent event) {
         navigateTo("/view/TestView.fxml");
+    }
+
+    @FXML
+    void vehicleImgOnAction(MouseEvent event) {
+        navigateTo("/view/VehicleView.fxml");
     }
 
     @FXML
@@ -87,24 +138,25 @@ public class MainLayoutController implements Initializable {
         try {
             ancPane.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
-            //  -------- Loaded anchor edges are bound to the content anchor --------
-//      (1) Bind the loaded FXML to all edges of the content anchorPane
             load.prefWidthProperty().bind(ancPane.widthProperty());
             load.prefHeightProperty().bind(ancPane.heightProperty());
-
-//      (2) Bind the loaded FXML to all edges of the AnchorPane
-//            AnchorPane.setTopAnchor(load, 0.0);
-//            AnchorPane.setRightAnchor(load, 0.0);
-//            AnchorPane.setBottomAnchor(load, 0.0);
-//            AnchorPane.setLeftAnchor(load, 0.0);
             ancPane.getChildren().add(load);
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR,"Failed to load").show();
         }
     }
 
+    private void handleLogout(Event event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to logout?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+
+        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
+            navigateTo("/view/LoginPageView.fxml");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigateTo("/view/WelcomeView.fxml");
+        navigateTo("/view/DashBoardView.fxml");
     }
 }

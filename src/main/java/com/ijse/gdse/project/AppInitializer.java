@@ -16,6 +16,7 @@ public class AppInitializer extends Application {
         Scene scene = new Scene(load);
         stage.setScene(scene);
         stage.setTitle("BetterDrive");
+        //stage.setWidth(825);
         stage.show();
     }
 }

@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WelcomeController implements Initializable {
+public class DashBoardController implements Initializable {
 
     @FXML
     private Circle cir;
