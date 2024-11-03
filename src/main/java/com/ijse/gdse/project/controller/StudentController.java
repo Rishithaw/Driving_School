@@ -1,14 +1,11 @@
 package com.ijse.gdse.project.controller;
 
+import com.ijse.gdse.project.dto.StudentDTO;
+import com.ijse.gdse.project.model.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
@@ -86,7 +83,23 @@ public class StudentController implements Initializable {
     private TextField txtPay;
 
     @FXML
+    public TextField txtNic;
+
+StudentModel studentModel = new StudentModel();
+
+    @FXML
     void SaveOnAction(ActionEvent event) {
+        String studentId = lblID.getText();
+        String name = txtName.getText();
+        String nic = txtNic.getText();
+        String dob = String.valueOf(dpDOB.getValue());
+        String gender = txtGender.getText();
+        String address = txtAddress.getText();
+        String assist = txtAssist.getText();
+        String email = txtEmail.getText();
+        String pay = txtPay.getText();
+
+        //boolean isSaved =studentModel.saveStudent(new StudentDTO());
 
     }
 
