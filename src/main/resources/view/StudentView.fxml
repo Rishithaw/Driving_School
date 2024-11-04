@@ -69,11 +69,11 @@
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="Student ID" />
           <TableColumn fx:id="colName" prefWidth="82.39996337890625" text="Name" />
-            <TableColumn fx:id="colDOB" prefWidth="84.0" text="DOB" />
-            <TableColumn fx:id="colAddress" prefWidth="66.40000915527344" text="Address" />
+            <TableColumn fx:id="colNic" prefWidth="84.0" text="NIC" />
+            <TableColumn fx:id="colDOB" prefWidth="66.40000915527344" text="DOB" />
             <TableColumn fx:id="colEmail" prefWidth="64.79998779296875" text="Email" />
-            <TableColumn minWidth="4.0" prefWidth="60.0" text="NIC" />
-            <TableColumn fx:id="colGender" prefWidth="65.5999755859375" text="Gender" />
+            <TableColumn fx:id="colGender" minWidth="4.0" prefWidth="60.0" text="Gender" />
+            <TableColumn fx:id="colAddress" prefWidth="65.5999755859375" text="Address" />
             <TableColumn fx:id="colAssist" minWidth="0.0" prefWidth="58.400054931640625" text="Assists" />
             <TableColumn fx:id="colPay" prefWidth="92.00006103515625" text="Advancement" />
         </columns>

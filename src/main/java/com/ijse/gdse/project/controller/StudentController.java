@@ -1,11 +1,13 @@
 package com.ijse.gdse.project.controller;
 
 import com.ijse.gdse.project.dto.StudentDTO;
+import com.ijse.gdse.project.dto.tm.StudentTM;
 import com.ijse.gdse.project.model.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
@@ -29,28 +31,31 @@ public class StudentController implements Initializable {
     private Circle cir;
 
     @FXML
-    private TableColumn<?, ?> colAddress;
+    private TableColumn<StudentTM, String> colAddress;
 
     @FXML
-    private TableColumn<?, ?> colAssist;
+    private TableColumn<StudentTM, String> colAssist;
 
     @FXML
-    private TableColumn<?, ?> colDOB;
+    private TableColumn<StudentTM, String> colDOB;
 
     @FXML
-    private TableColumn<?, ?> colEmail;
+    private TableColumn<StudentTM, String> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colGender;
+    private TableColumn<StudentTM, String> colGender;
 
     @FXML
-    private TableColumn<?, ?> colID;
+    private TableColumn<StudentTM, String> colID;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<StudentTM, String> colName;
 
     @FXML
-    private TableColumn<?, ?> colPay;
+    private TableColumn<StudentTM, String> colNic;
+
+    @FXML
+    private TableColumn<StudentTM, String> colPay;
 
     @FXML
     private DatePicker dpDOB;
@@ -62,7 +67,7 @@ public class StudentController implements Initializable {
     private Label lblID;
 
     @FXML
-    private TableView<?> tblStudent;
+    private TableView<StudentTM> tblStudent;
 
     @FXML
     private TextField txtAddress;
@@ -86,6 +91,18 @@ public class StudentController implements Initializable {
     public TextField txtNic;
 
 StudentModel studentModel = new StudentModel();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        cir.setFill(new ImagePattern(imgProfile.getImage()));
+        colID.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("studentId"));
+        colName.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("name"));
+        //colNic.setCellValueFactory(new PropertyValueFactory<>());
+        colDOB.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("DOB"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("email"));
+    }
+
+
 
     @FXML
     void SaveOnAction(ActionEvent event) {
@@ -118,8 +135,5 @@ StudentModel studentModel = new StudentModel();
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        cir.setFill(new ImagePattern(imgProfile.getImage()));
-    }
+
 }
