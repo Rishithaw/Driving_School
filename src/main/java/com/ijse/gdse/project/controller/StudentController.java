@@ -97,9 +97,13 @@ StudentModel studentModel = new StudentModel();
         cir.setFill(new ImagePattern(imgProfile.getImage()));
         colID.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("studentId"));
         colName.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("name"));
-        //colNic.setCellValueFactory(new PropertyValueFactory<>());
+        colNic.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("nic"));
         colDOB.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("DOB"));
+        colGender.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("gender"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("address"));
+        colAssist.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("assist"));
         colEmail.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("email"));
+        colPay.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("advance payment"));
     }
 
 
