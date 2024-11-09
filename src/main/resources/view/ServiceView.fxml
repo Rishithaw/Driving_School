@@ -19,7 +19,7 @@
             <Image url="@../images/pictures/Pane.png" />
          </image>
       </ImageView>
-      <Label layoutX="113.0" layoutY="27.0" text="Service" textFill="#593f1e">
+      <Label layoutX="50.0" layoutY="25.0" text="Service" textFill="#593f1e">
          <font>
             <Font name="Book Antiqua" size="30.0" />
          </font>

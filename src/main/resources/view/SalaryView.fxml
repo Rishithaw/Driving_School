@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.SalaryController">
    <children>
@@ -72,15 +72,15 @@
             </Button>
          </children>
       </HBox>
-      <TextField fx:id="txtPayment" layoutX="333.0" layoutY="121.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TableView layoutX="4.0" layoutY="325.0" prefHeight="193.0" prefWidth="659.0">
+      <TableView layoutX="21.0" layoutY="323.0" prefHeight="194.0" prefWidth="623.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="colID" prefWidth="101.60003471374512" text="Salary ID" />
+          <TableColumn fx:id="colAmount" prefWidth="137.59998321533203" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="144.800048828125" text="Date" />
+            <TableColumn fx:id="colReceived" prefWidth="129.60000610351562" text="Received" />
+            <TableColumn fx:id="colHoliday" prefWidth="108.79998779296875" text="Holidays" />
         </columns>
       </TableView>
+      <ComboBox fx:id="cmbPayment" layoutX="333.0" layoutY="122.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose option" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>
