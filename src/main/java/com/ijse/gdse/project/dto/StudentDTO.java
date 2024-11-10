@@ -14,7 +14,7 @@ public class StudentDTO {
     private String name;
     private String address;
     private String gender;
-    private String helping_aids;
+    private String assists;
     private String advance_payment;
     private String email;
 }
