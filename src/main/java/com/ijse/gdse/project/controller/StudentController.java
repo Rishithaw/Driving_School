@@ -163,7 +163,11 @@ public class StudentController implements Initializable {
     }
 
     @FXML
-    void SaveOnAction(ActionEvent event) {
+    void SaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String namePattern = "^[A-Za-z ]+$";
+        String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+
         String studentId = lblID.getText();
         String name = txtName.getText();
         String nic = txtNic.getText();
@@ -174,8 +178,25 @@ public class StudentController implements Initializable {
         String email = txtEmail.getText();
         String pay = txtPay.getText();
 
-        //boolean isSaved =studentModel.saveStudent(new StudentDTO());
+        StudentDTO studentDTO = new StudentDTO(
+                studentId,
+                name,
+                nic,
+                dob,
+                gender,
+                address,
+                assist,
+                email,
+                pay
+        );
 
+        boolean isSaved =studentModel.saveStudent(studentDTO);
+        if (isSaved) {
+            refreshPage();
+            new Alert(Alert.AlertType.INFORMATION,"Successfully Saved").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR,"Failed to save Student").show();
+        }
     }
 
     @FXML
@@ -254,6 +275,4 @@ public class StudentController implements Initializable {
 
         }
     }
-
-
 }

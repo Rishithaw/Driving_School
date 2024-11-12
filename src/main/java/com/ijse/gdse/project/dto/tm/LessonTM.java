@@ -8,7 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class LessonTM {
-    private int le_id;
+    private String le_id;
     private String description;
     private String time_period;
+    private String in_id;
 }

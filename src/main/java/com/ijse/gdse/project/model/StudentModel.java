@@ -69,11 +69,11 @@ public class StudentModel {
         );
     }
 
-    public boolean deleteStudent(String studentId) throws SQLException, ClassNotFoundException {
+    public boolean deleteStudent(String studentId) throws SQLException {
         return CrudUtil.execute("delete from student where student_id=?",studentId);
     }
 
-    public ArrayList<String> getAllStudentId() throws SQLException, ClassNotFoundException {
+    public ArrayList<String> getAllStudentId() throws SQLException {
         ResultSet rst = CrudUtil.execute("select student_id from student");
         ArrayList<String> studentIds = new ArrayList<>();
         while (rst.next()) {
@@ -82,7 +82,7 @@ public class StudentModel {
         return studentIds;
     }
 
-    public  StudentDTO findById(String selectedStuId) throws SQLException, ClassNotFoundException {
+    public StudentDTO findById(String selectedStuId) throws SQLException {
         ResultSet rst = CrudUtil.execute("select * from student where student_id=?",selectedStuId);
 
         if (rst.next()) {
