@@ -64,9 +64,6 @@ public class StudentController implements Initializable {
     private TableColumn<StudentTM, String> colPay;
 
     @FXML
-    private DatePicker dpDOB;
-
-    @FXML
     private ImageView imgProfile;
 
     @FXML
@@ -80,6 +77,9 @@ public class StudentController implements Initializable {
 
     @FXML
     private TextField txtAssist;
+
+    @FXML
+    private TextField txtDob;
 
     @FXML
     private TextField txtEmail;
@@ -119,49 +119,6 @@ public class StudentController implements Initializable {
         }
     }
 
-    private void refreshPage() throws SQLException, ClassNotFoundException {
-        loadNextStudentId();
-        loadTableData();
-        btnSave.setDisable(false);
-
-        btnUpdate.setDisable(true);
-        btnDelete.setDisable(true);
-
-        txtName.setText("");
-        txtNic.setText("");
-        dpDOB.setValue(null);
-        txtGender.setText("");
-        txtAddress.setText("");
-        txtAssist.setText("");
-        txtEmail.setText("");
-        txtPay.setText("");
-    }
-
-    private void loadTableData() throws SQLException, ClassNotFoundException {
-        ArrayList<StudentDTO> studentDTOS =studentModel.getAllStudent();
-        ObservableList<StudentTM> studentTMS = FXCollections.observableArrayList();
-        for (StudentDTO studentDTO : studentDTOS) {
-            StudentTM studentTM = new StudentTM(
-                    studentDTO.getStudent_id(),
-                    studentDTO.getName(),
-                    studentDTO.getNIC(),
-                    studentDTO.getDOB(),
-                    studentDTO.getGender(),
-                    studentDTO.getAddress(),
-                    studentDTO.getAssists(),
-                    studentDTO.getEmail(),
-                    studentDTO.getAdvance_payment()
-            );
-            studentTMS.add(studentTM);
-        }
-        tblStudent.setItems(studentTMS);
-    }
-
-    private void loadNextStudentId() throws SQLException, ClassNotFoundException {
-        String nextCustomerId = studentModel.getNextStudentId();
-        lblID.setText(nextCustomerId);
-    }
-
     @FXML
     void SaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String namePattern = "^[A-Za-z ]+$";
@@ -171,7 +128,7 @@ public class StudentController implements Initializable {
         String studentId = lblID.getText();
         String name = txtName.getText();
         String nic = txtNic.getText();
-        String dob = String.valueOf(dpDOB.getValue());
+        String dob = txtDob.getText();
         String gender = txtGender.getText();
         String address = txtAddress.getText();
         String assist = txtAssist.getText();
@@ -224,7 +181,7 @@ public class StudentController implements Initializable {
             lblID.setText(studentTM.getStudent_id());
             txtName.setText(studentTM.getName());
             txtNic.setText(studentTM.getNIC());
-            dpDOB.setValue(LocalDate.parse(studentTM.getDOB()));
+            txtDob.setText(studentTM.getDOB());
             txtGender.setText(studentTM.getGender());
             txtAddress.setText(studentTM.getAddress());
             txtAssist.setText(studentTM.getAssists());
@@ -247,7 +204,7 @@ public class StudentController implements Initializable {
         String studentId = lblID.getText();
         String name = txtName.getText();
         String nic = txtNic.getText();
-        String dob = String.valueOf(dpDOB.getValue());
+        String dob = txtDob.getText();
         String gender = txtGender.getText();
         String address = txtAddress.getText();
         String assist = txtAssist.getText();
@@ -274,5 +231,48 @@ public class StudentController implements Initializable {
             new Alert(Alert.AlertType.ERROR,"Fail to update student").show();
 
         }
+    }
+
+    private void refreshPage() throws SQLException, ClassNotFoundException {
+        loadNextStudentId();
+        loadTableData();
+        btnSave.setDisable(false);
+
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+
+        txtName.setText("");
+        txtNic.setText("");
+        txtDob.setText("");
+        txtGender.setText("");
+        txtAddress.setText("");
+        txtAssist.setText("");
+        txtEmail.setText("");
+        txtPay.setText("");
+    }
+
+    private void loadTableData() throws SQLException, ClassNotFoundException {
+        ArrayList<StudentDTO> studentDTOS =studentModel.getAllStudent();
+        ObservableList<StudentTM> studentTMS = FXCollections.observableArrayList();
+        for (StudentDTO studentDTO : studentDTOS) {
+            StudentTM studentTM = new StudentTM(
+                    studentDTO.getStudent_id(),
+                    studentDTO.getName(),
+                    studentDTO.getNIC(),
+                    studentDTO.getDOB(),
+                    studentDTO.getGender(),
+                    studentDTO.getAddress(),
+                    studentDTO.getAssists(),
+                    studentDTO.getEmail(),
+                    studentDTO.getAdvance_payment()
+            );
+            studentTMS.add(studentTM);
+        }
+        tblStudent.setItems(studentTMS);
+    }
+
+    private void loadNextStudentId() throws SQLException {
+        String nextCustomerId = studentModel.getNextStudentId();
+        lblID.setText(nextCustomerId);
     }
 }

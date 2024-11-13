@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class LessonTM {
     private String le_id;
-    private String description;
+    private String lessonName;
     private String time_period;
     private String in_id;
 }

@@ -24,7 +24,7 @@ public class LessonModel {
         boolean isSaved = CrudUtil.execute("insert into lesson values(?,?,?,?)");
             lessonDTO.getLe_id();
             lessonDTO.getIn_id();
-            lessonDTO.getDescription();
+            lessonDTO.getLessonName();
             lessonDTO.getTime_period();
             return isSaved;
     }
@@ -47,12 +47,12 @@ public class LessonModel {
     public boolean updateLesson(LessonDTO lessonDTO) throws SQLException {
         return CrudUtil.execute("update lesson set in_id=?, description=?, time_period=?",
                 lessonDTO.getIn_id(),
-                lessonDTO.getDescription(),
+                lessonDTO.getLessonName(),
                 lessonDTO.getTime_period()
         );
     }
 
-    public boolean deleteLesson(String lessonId) throws SQLException, ClassNotFoundException {
+    public static boolean deleteLesson(String lessonId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from lesson where lesson_id=?",lessonId);
     }
 

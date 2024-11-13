@@ -3,6 +3,8 @@ package com.ijse.gdse.project.controller;
 import com.ijse.gdse.project.dto.LessonDTO;
 import com.ijse.gdse.project.dto.tm.LessonTM;
 import com.ijse.gdse.project.model.LessonModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +18,7 @@ import javafx.scene.shape.Circle;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LessonController implements Initializable {
@@ -42,6 +45,12 @@ public class LessonController implements Initializable {
     private TableColumn<LessonTM, String> colInstructor;
 
     @FXML
+    private TableColumn<LessonTM ,String> colLessonName;
+
+    @FXML
+    private TableColumn<LessonTM ,String> colStId;
+
+    @FXML
     private TableColumn<LessonTM, String> colStName;
 
     @FXML
@@ -54,7 +63,7 @@ public class LessonController implements Initializable {
     private Label lblStID;
 
     @FXML
-    private TableView<?> tblLesson;
+    private TableView<LessonTM> tblLesson;
 
     @FXML
     private TextField txtDuration;
@@ -63,7 +72,7 @@ public class LessonController implements Initializable {
     private TextField txtInstructor;
 
     @FXML
-    private TextField txtName;
+    private TextField txtLessonName;
 
     @FXML
     private TextField txtStName;
@@ -71,30 +80,91 @@ public class LessonController implements Initializable {
     LessonModel lessonModel = new LessonModel();
 
     @FXML
-    void SaveOnAction(ActionEvent event) {
+    void SaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String lessonId = lblID.getText();
+        String duration = txtDuration.getText();
+        String instructor = txtInstructor.getText();
+        String lessonName = txtLessonName.getText();
+        String stName = txtStName.getText();
 
+        LessonDTO lessonDTO = new LessonDTO(
+                lessonId,
+                lessonName,
+                duration,
+                instructor
+        );
+        boolean isSaved = lessonModel.saveLesson(lessonDTO);
+        if (isSaved) {
+            refreshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Lesson Saved", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.ERROR,"Failed to save Lesson").show();
+        }
     }
 
     @FXML
-    void deleteOnAction(ActionEvent event) {
+    void deleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String lessonId = lblID.getText();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
 
+        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
+            boolean isDeleted = LessonModel.deleteLesson(lessonId);
+            if (isDeleted) {
+                refreshPage();
+                new Alert(Alert.AlertType.INFORMATION,"Successfully deleted").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR,"Fail to delete lesson").show();
+            }
+        }
     }
 
     @FXML
     void onClickTable(MouseEvent event) {
+        LessonTM lessonTM = tblLesson.getSelectionModel().getSelectedItem();
+        if (lessonTM != null) {
+            lblID.setText(lessonTM.getLe_id());
+            txtLessonName.setText(lessonTM.getLessonName());
+            txtDuration.setText(lessonTM.getTime_period());
+            txtInstructor.setText(lessonTM.getIn_id());
 
+            btnSave.setDisable(true);
+
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+        }
     }
 
     @FXML
-    void updateOnAction(ActionEvent event) {
+    void updateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String lessonId = lblID.getText();
+        String duration = txtDuration.getText();
+        String instructor = txtInstructor.getText();
+        String lessonName = txtLessonName.getText();
+        String stName = txtStName.getText();
 
+        LessonDTO lessonDTO = new LessonDTO(
+                lessonId,
+                lessonName,
+                duration,
+                instructor
+        );
+        boolean isSaved = lessonModel.updateLesson(lessonDTO);
+        if (isSaved) {
+            refreshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Lesson Updated", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.ERROR,"Failed to save Lesson").show();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cir.setFill(new ImagePattern(imgProfile.getImage()));
         colID.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("lessonId"));
-        colStName.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("lessonName"));
+        colLessonName.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("LessonName"));
+        colStId.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("StudentId"));
+        colStName.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("studentName"));
         colDuration.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("duration"));
         colInstructor.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("instructor"));
 
@@ -117,23 +187,17 @@ public class LessonController implements Initializable {
 
     private void loadTableData() throws SQLException {
         ArrayList<LessonDTO> lessonDTOS = lessonModel.getAllLesson();
-        //ArrayList<StudentDTO> studentDTOS =studentModel.getAllStudent();
-        //        ObservableList<StudentTM> studentTMS = FXCollections.observableArrayList();
-        //        for (StudentDTO studentDTO : studentDTOS) {
-        //            StudentTM studentTM = new StudentTM(
-        //                    studentDTO.getStudent_id(),
-        //                    studentDTO.getName(),
-        //                    studentDTO.getNIC(),
-        //                    studentDTO.getDOB(),
-        //                    studentDTO.getGender(),
-        //                    studentDTO.getAddress(),
-        //                    studentDTO.getAssists(),
-        //                    studentDTO.getEmail(),
-        //                    studentDTO.getAdvance_payment()
-        //            );
-        //            studentTMS.add(studentTM);
-        //        }
-        //        tblStudent.setItems(studentTMS);
+        ObservableList<LessonTM> lessonTMS = FXCollections.observableArrayList();
+        for (LessonDTO lessonDTO : lessonDTOS) {
+            LessonTM lessonTM = new LessonTM(
+                    lessonDTO.getLe_id(),
+                    lessonDTO.getIn_id(),
+                    lessonDTO.getLessonName(),
+                    lessonDTO.getTime_period()
+            );
+            lessonTMS.add(lessonTM);
+        }
+        tblLesson.setItems(lessonTMS);
     }
 
     private void loadNextLessonId() throws SQLException {
