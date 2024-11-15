@@ -2,81 +2,76 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.PaymentController">
+<AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.PaymentController">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="667.0" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="858.0" pickOnBounds="true">
          <image>
             <Image url="@../images/pictures/Pane.png" />
          </image>
       </ImageView>
       <Label layoutX="53.0" layoutY="25.0" text="Payment Management" textFill="#593f1e">
          <font>
-            <Font name="Book Antiqua" size="30.0" />
+            <Font name="Book Antiqua" size="36.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpDOP" layoutX="72.0" layoutY="242.0" prefHeight="28.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="72.0" layoutY="148.0" text="Amount">
+      <Label layoutX="340.0" layoutY="121.0" text="Amount">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAmount" layoutX="72.0" layoutY="173.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="72.0" layoutY="215.0" text="Date Of Payment">
+      <TextField fx:id="txtAmount" layoutX="340.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="613.0" layoutY="121.0" text="Date Of Payment">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblID" layoutX="156.0" layoutY="149.0" text="1">
+      <Label fx:id="lblID" layoutX="424.0" layoutY="122.0" text="1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="343.0" layoutY="83.0" text="Price">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtPrice" layoutX="343.0" layoutY="108.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label fx:id="lblPayID" layoutX="228.0" layoutY="215.0" text="1">
+      <Label fx:id="lblPayID" layoutX="769.0" layoutY="121.0" text="1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="71.0" layoutY="279.0" text="Payment Option">
+      <Label layoutX="53.0" layoutY="226.0" text="Payment Option">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbPayment" layoutX="71.0" layoutY="305.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose option" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="343.0" layoutY="148.0" text="Discount">
+      <ComboBox fx:id="cmbPayment" layoutX="53.0" layoutY="261.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose option" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="340.0" layoutY="226.0" text="Discount">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="343.0" layoutY="219.0" text="Discount Price">
+      <Label layoutX="613.0" layoutY="229.0" text="Discount Price">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDiscount" layoutX="343.0" layoutY="244.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <ComboBox fx:id="cmbDiscount" layoutX="343.0" layoutY="173.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose Discount" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="71.0" layoutY="82.0" text="Student Name">
+      <TextField fx:id="txtDiscount" layoutX="613.0" layoutY="264.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <ComboBox fx:id="cmbDiscount" layoutX="340.0" layoutY="261.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose Discount" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="53.0" layoutY="121.0" text="Student Name">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStudentName" layoutX="71.0" layoutY="107.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="423.0" layoutY="303.0" spacing="10.0">
+      <TextField fx:id="txtStudentName" layoutX="53.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <HBox alignment="CENTER_RIGHT" layoutX="613.0" layoutY="342.0" spacing="10.0">
          <children>
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
                <font>
@@ -95,5 +90,24 @@
             </Button>
          </children>
       </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="649.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="816.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pictures/Profile.jpg" />
+         </image>
+      </ImageView>
+      <Circle fx:id="cir" fill="WHITE" layoutX="828.0" layoutY="59.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="txtDOP" layoutX="613.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TableView layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="830.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="85.60000419616699" text="Payment ID" />
+          <TableColumn fx:id="colAmount" prefWidth="90.4000015258789" text="Amount" />
+            <TableColumn fx:id="colStName" prefWidth="164.0" text="Student Name" />
+            <TableColumn fx:id="colDate" prefWidth="147.20001220703125" text="Date of Payment" />
+            <TableColumn fx:id="colPayOption" prefWidth="124.79995727539062" text="Payment Option" />
+            <TableColumn fx:id="colDiscount" prefWidth="106.39996337890625" text="Discount" />
+            <TableColumn fx:id="colDiscountPrice" prefWidth="117.60009765625" text="Discount Price" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

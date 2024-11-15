@@ -13,60 +13,60 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.LessonController">
+<AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.LessonController">
     <children>
-        <ImageView fitHeight="522.0" fitWidth="667.0" pickOnBounds="true">
+        <ImageView fitHeight="600.0" fitWidth="858.0" pickOnBounds="true">
             <image>
                 <Image url="@../images/pictures/Pane.png" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="447.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-        <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="614.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+        <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="796.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/pictures/Profile.jpg" />
             </image>
         </ImageView>
-        <Circle fx:id="cir" fill="WHITE" layoutX="626.0" layoutY="39.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="cir" fill="WHITE" layoutX="808.0" layoutY="39.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
         <Label layoutX="50.0" layoutY="25.0" text="Lesson Management" textFill="#593f1e">
             <font>
-                <Font name="Book Antiqua" size="22.0" />
+                <Font name="Book Antiqua" size="36.0" />
             </font>
         </Label>
-        <Label layoutX="50.0" layoutY="90.0" text="Lesson Name">
+        <Label layoutX="50.0" layoutY="110.0" text="Lesson Name">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <TextField fx:id="txtLessonName" layoutX="50.0" layoutY="115.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-        <Label layoutX="332.0" layoutY="88.0" text="Duration">
+        <TextField fx:id="txtLessonName" layoutX="50.0" layoutY="135.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+        <Label layoutX="372.0" layoutY="110.0" text="Duration">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="332.0" layoutY="151.0" text="Instructor">
+        <Label layoutX="372.0" layoutY="205.0" text="Instructor">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label fx:id="lblID" layoutX="184.0" layoutY="90.0" text="1">
+        <Label fx:id="lblID" layoutX="184.0" layoutY="110.0" text="1">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="txtDuration" layoutX="332.0" layoutY="115.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-        <TextField fx:id="txtInstructor" layoutX="332.0" layoutY="176.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-        <Label layoutX="50.0" layoutY="155.0" text="Student Name">
+        <TextField fx:id="txtDuration" layoutX="372.0" layoutY="135.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+        <TextField fx:id="txtInstructor" layoutX="372.0" layoutY="230.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+        <Label layoutX="50.0" layoutY="205.0" text="Student Name">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <TextField fx:id="txtStName" layoutX="50.0" layoutY="180.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-        <Label fx:id="lblStID" layoutX="194.0" layoutY="155.0" text="1">
+        <TextField fx:id="txtStName" layoutX="50.0" layoutY="230.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+        <Label fx:id="lblStID" layoutX="194.0" layoutY="205.0" text="1">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <HBox alignment="CENTER_RIGHT" layoutX="427.0" layoutY="277.0" spacing="10.0">
+        <HBox alignment="CENTER_RIGHT" layoutX="608.0" layoutY="285.0" spacing="10.0">
             <children>
                 <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
                     <font>
@@ -85,14 +85,14 @@
                 </Button>
             </children>
         </HBox>
-      <TableView fx:id="tblLesson" layoutX="11.0" layoutY="328.0" onMouseClicked="#onClickTable" prefHeight="186.0" prefWidth="648.0">
+      <TableView fx:id="tblLesson" layoutX="11.0" layoutY="334.0" onMouseClicked="#onClickTable" prefHeight="238.0" prefWidth="839.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="Lesson ID" />
-          <TableColumn fx:id="colLessonName" prefWidth="123.19995880126953" text="Lesson Name" />
-            <TableColumn fx:id="colStId" prefWidth="83.20001220703125" text="Student ID" />
-            <TableColumn fx:id="colStName" prefWidth="125.5999755859375" text="Student Name" />
-            <TableColumn fx:id="colDuration" prefWidth="109.60000610351562" text="Duration" />
-            <TableColumn fx:id="colInstructor" prefWidth="131.20001220703125" text="Instructor" />
+          <TableColumn fx:id="colLessonName" prefWidth="156.8000259399414" text="Lesson Name" />
+            <TableColumn fx:id="colStId" prefWidth="105.5999755859375" text="Student ID" />
+            <TableColumn fx:id="colStName" prefWidth="168.80001831054688" text="Student Name" />
+            <TableColumn fx:id="colDuration" prefWidth="160.800048828125" text="Duration" />
+            <TableColumn fx:id="colInstructor" prefWidth="169.59991455078125" text="Instructor" />
         </columns>
       </TableView>
     </children>

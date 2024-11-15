@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 
 public class PaymentController {
 
@@ -20,13 +22,37 @@ public class PaymentController {
     private Button btnUpdate;
 
     @FXML
+    private Circle cir;
+
+    @FXML
     private ComboBox<?> cmbDiscount;
 
     @FXML
     private ComboBox<?> cmbPayment;
 
     @FXML
-    private DatePicker dpDOP;
+    private TableColumn<?, ?> colAmount;
+
+    @FXML
+    private TableColumn<?, ?> colDate;
+
+    @FXML
+    private TableColumn<?, ?> colDiscount;
+
+    @FXML
+    private TableColumn<?, ?> colDiscountPrice;
+
+    @FXML
+    private TableColumn<?, ?> colID;
+
+    @FXML
+    private TableColumn<?, ?> colPayOption;
+
+    @FXML
+    private TableColumn<?, ?> colStName;
+
+    @FXML
+    private ImageView imgProfile;
 
     @FXML
     private Label lblID;
@@ -38,10 +64,10 @@ public class PaymentController {
     private TextField txtAmount;
 
     @FXML
-    private TextField txtDiscount;
+    private TextField txtDOP;
 
     @FXML
-    private TextField txtPrice;
+    private TextField txtDiscount;
 
     @FXML
     private TextField txtStudentName;

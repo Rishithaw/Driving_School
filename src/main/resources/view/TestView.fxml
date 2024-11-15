@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -14,24 +13,23 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.TestController">
+<AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.TestController">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="667.0" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="858.0" pickOnBounds="true">
          <image>
             <Image url="@../images/pictures/Pane.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="459.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="626.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="796.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pictures/Profile.jpg" />
          </image>
       </ImageView>
-      <Circle fx:id="cir" fill="WHITE" layoutX="638.0" layoutY="49.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="cir" fill="WHITE" layoutX="808.0" layoutY="49.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="60.0" layoutY="35.0" text="Test Management" textFill="#593f1e">
          <font>
-            <Font name="Book Antiqua" size="22.0" />
+            <Font name="Book Antiqua" size="36.0" />
          </font>
       </Label>
       <Label layoutX="60.0" layoutY="131.0" text="Student Name">
@@ -39,13 +37,13 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStName" layoutX="60.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="344.0" layoutY="130.0" text="Test Time">
+      <TextField fx:id="txtStName" layoutX="60.0" layoutY="166.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="493.0" layoutY="131.0" text="Test Time">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="216.0" text="Test Date">
+      <Label layoutX="60.0" layoutY="253.0" text="Test Date">
          <font>
             <Font size="20.0" />
          </font>
@@ -55,8 +53,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTime" layoutX="344.0" layoutY="155.0" prefHeight="28.0" prefWidth="190.0" promptText="HH:MM" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="439.0" layoutY="311.0" spacing="10.0">
+      <TextField fx:id="txtTime" layoutX="493.0" layoutY="166.0" prefHeight="28.0" prefWidth="190.0" promptText="HH:MM" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <HBox alignment="CENTER_RIGHT" layoutX="609.0" layoutY="365.0" spacing="10.0">
          <children>
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
                <font>
@@ -75,27 +73,27 @@
             </Button>
          </children>
       </HBox>
-      <Label fx:id="lblID1" layoutX="459.0" layoutY="131.0" text="1">
+      <Label fx:id="lblID1" layoutX="608.0" layoutY="131.0" text="1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpTestDate" layoutX="60.0" layoutY="247.0" prefHeight="28.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="344.0" layoutY="221.0" text="Instructor In Charge">
+      <Label layoutX="493.0" layoutY="253.0" text="Instructor In Charge">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtInstructor" layoutX="344.0" layoutY="246.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TableView fx:id="tblTest" layoutX="9.0" layoutY="351.0" prefHeight="163.0" prefWidth="650.0">
+      <TextField fx:id="txtInstructor" layoutX="493.0" layoutY="289.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TableView fx:id="tblTest" layoutX="9.0" layoutY="422.0" prefHeight="163.0" prefWidth="838.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="87.20001029968262" text="Test ID" />
           <TableColumn fx:id="colStID" prefWidth="118.39997100830078" text="Student ID" />
             <TableColumn fx:id="colStName" prefWidth="153.60003662109375" text="Student Name" />
-            <TableColumn fx:id="colDate" prefWidth="107.199951171875" text="Date" />
-            <TableColumn fx:id="colTime" prefWidth="90.39999389648438" text="Time" />
-            <TableColumn fx:id="colInstructor" prefWidth="92.79998779296875" text="Instructor" />
+            <TableColumn fx:id="colDate" prefWidth="167.19998168945312" text="Date" />
+            <TableColumn fx:id="colTime" prefWidth="128.79998779296875" text="Time" />
+            <TableColumn fx:id="colInstructor" prefWidth="180.800048828125" text="Instructor" />
         </columns>
       </TableView>
+      <TextField fx:id="txtTestDate" layoutX="60.0" layoutY="289.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>

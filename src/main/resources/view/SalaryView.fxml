@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -11,49 +10,50 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="522.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.SalaryController">
+<AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.SalaryController">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="667.0" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="858.0" pickOnBounds="true">
          <image>
             <Image url="@../images/pictures/Pane.png" />
          </image>
       </ImageView>
       <Label layoutX="43.0" layoutY="29.0" text="Salary Management" textFill="#593f1e">
          <font>
-            <Font name="Book Antiqua" size="30.0" />
+            <Font name="Book Antiqua" size="36.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpDOP" layoutX="60.0" layoutY="199.0" prefHeight="28.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="60.0" layoutY="97.0" text="Amount">
+      <Label layoutX="60.0" layoutY="131.0" text="Amount">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAmount" layoutX="60.0" layoutY="122.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="60.0" layoutY="172.0" text="Date Of Payment">
+      <TextField fx:id="txtAmount" layoutX="60.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="60.0" layoutY="235.0" text="Date Of Payment">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblID" layoutX="144.0" layoutY="98.0" text="1">
+      <Label fx:id="lblID" layoutX="144.0" layoutY="132.0" text="1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="333.0" layoutY="96.0" text="Payment Received">
+      <Label layoutX="429.0" layoutY="131.0" text="Payment Received">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="333.0" layoutY="172.0" text="No. Of Holiday">
+      <Label layoutX="429.0" layoutY="236.0" text="No. Of Holiday">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtHoliday" layoutX="333.0" layoutY="199.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="433.0" layoutY="275.0" spacing="10.0">
+      <TextField fx:id="txtHoliday" layoutX="429.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <HBox alignment="CENTER_RIGHT" layoutX="617.0" layoutY="343.0" spacing="10.0">
          <children>
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
                <font>
@@ -72,15 +72,23 @@
             </Button>
          </children>
       </HBox>
-      <TableView layoutX="21.0" layoutY="323.0" prefHeight="194.0" prefWidth="623.0">
+      <TableView layoutX="6.0" layoutY="391.0" prefHeight="194.0" prefWidth="844.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="101.60003471374512" text="Salary ID" />
-          <TableColumn fx:id="colAmount" prefWidth="137.59998321533203" text="Amount" />
-            <TableColumn fx:id="colDate" prefWidth="144.800048828125" text="Date" />
-            <TableColumn fx:id="colReceived" prefWidth="129.60000610351562" text="Received" />
-            <TableColumn fx:id="colHoliday" prefWidth="108.79998779296875" text="Holidays" />
+          <TableColumn fx:id="colAmount" prefWidth="172.8000259399414" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="161.5999755859375" text="Date" />
+            <TableColumn fx:id="colReceived" prefWidth="197.59994506835938" text="Received" />
+            <TableColumn fx:id="colHoliday" prefWidth="210.39990234375" text="Holidays" />
         </columns>
       </TableView>
-      <ComboBox fx:id="cmbPayment" layoutX="333.0" layoutY="122.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose option" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <ComboBox fx:id="cmbPayment" layoutX="429.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" promptText="Choose option" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="639.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="806.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pictures/Profile.jpg" />
+         </image>
+      </ImageView>
+      <Circle fx:id="cir" fill="WHITE" layoutX="818.0" layoutY="49.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="txtDOP" layoutX="60.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>

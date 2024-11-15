@@ -49,9 +49,6 @@ public class TestController implements Initializable {
     private TableColumn<?, ?> colTime;
 
     @FXML
-    private DatePicker dpTestDate;
-
-    @FXML
     private ImageView imgProfile;
 
     @FXML
@@ -68,6 +65,9 @@ public class TestController implements Initializable {
 
     @FXML
     private TextField txtStName;
+
+    @FXML
+    private TextField txtTestDate;
 
     @FXML
     private TextField txtTime;
