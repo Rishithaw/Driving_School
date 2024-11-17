@@ -38,17 +38,17 @@
          </font>
       </Label>
       <TextField fx:id="txtVehicle" layoutX="50.0" layoutY="158.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="510.0" layoutY="234.0" text="Mechanic">
+      <Label layoutX="344.0" layoutY="230.0" text="Mechanic ID">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="510.0" layoutY="121.0" text="Instructor In Charge">
+      <Label layoutX="50.0" layoutY="230.0" text="Instructor ID">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="238.0" text="Lesson Fee">
+      <Label layoutX="344.0" layoutY="121.0" text="Lesson Fee">
          <font>
             <Font size="20.0" />
          </font>
@@ -58,16 +58,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtMechanic" layoutX="510.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TextField fx:id="txtInstructor" layoutX="510.0" layoutY="158.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TextField fx:id="txtLessonFee" layoutX="50.0" layoutY="273.0" prefHeight="20.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtMechanic" layoutX="344.0" layoutY="270.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtInstructor" layoutX="50.0" layoutY="270.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtLessonFee" layoutX="344.0" layoutY="158.0" prefHeight="20.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TableView fx:id="tblVehicle" layoutX="7.0" layoutY="410.0" onMouseClicked="#onClickTable" prefHeight="175.0" prefWidth="840.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="115.20001077651978" text="Vehicle ID" />
-          <TableColumn fx:id="colVehicleType" prefWidth="178.39997100830078" text="Vehicle Type" />
-            <TableColumn fx:id="colLessonFee" prefWidth="191.20001220703125" text="Lessson Fee" />
-            <TableColumn fx:id="colInstructor" prefWidth="181.60000610351562" text="Instructor" />
-            <TableColumn fx:id="colMechanic" prefWidth="168.7999267578125" text="Mechanic" />
+          <TableColumn fx:id="colVehicleType" prefWidth="127.19995880126953" text="Vehicle Type" />
+            <TableColumn fx:id="colLessonFee" prefWidth="168.0" text="Lessson Fee" />
+            <TableColumn fx:id="colAdmin" minWidth="0.0" prefWidth="145.59994506835938" text="Admin" />
+            <TableColumn fx:id="colInstructor" minWidth="0.0" prefWidth="131.199951171875" text="Instructor" />
+            <TableColumn fx:id="colMechanic" prefWidth="146.39996337890625" text="Mechanic" />
         </columns>
       </TableView>
       <HBox alignment="CENTER_RIGHT" layoutX="535.0" layoutY="367.0" spacing="10.0">
@@ -94,5 +95,11 @@
             </Button>
          </children>
       </HBox>
+      <Label layoutX="605.0" layoutY="121.0" text="Admin ID">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAdmin" layoutX="605.0" layoutY="158.0" prefHeight="20.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>

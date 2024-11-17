@@ -280,7 +280,7 @@ public class StudentController implements Initializable {
         txtVehicleID.setText("");
     }
 
-    private void loadTableData() throws SQLException, ClassNotFoundException {
+    private void loadTableData() throws SQLException {
         ArrayList<StudentDTO> studentDTOS =studentModel.getAllStudent();
         ObservableList<StudentTM> studentTMS = FXCollections.observableArrayList();
         for (StudentDTO studentDTO : studentDTOS) {
@@ -296,8 +296,6 @@ public class StudentController implements Initializable {
                     studentTM.setAdvancePayment(studentDTO.getAdvancePayment());
                     studentTM.setVehicleId(studentDTO.getVehicleId());
                     studentTMS.add(studentTM);
-            //);
-            //studentTMS.add(studentTM);
         }
         tblStudent.setItems(studentTMS);
     }

@@ -37,7 +37,7 @@ public class StudentModel {
         return isSaved;
     }
 
-    public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException {
+    public ArrayList<StudentDTO> getAllStudent() throws SQLException {
         ResultSet rst = CrudUtil.execute("select * from student");
         ArrayList<StudentDTO> studentDTOS = new ArrayList<>();
         while (rst.next()) {
