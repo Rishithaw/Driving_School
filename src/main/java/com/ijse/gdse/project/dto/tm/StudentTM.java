@@ -8,13 +8,14 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class StudentTM {
-    private String student_id;
+    private String studentId;
     private String DOB;
     private String NIC;
     private String name;
     private String address;
     private String gender;
     private String assists;
-    private String advance_payment;
+    private String advancePayment;
     private String email;
+    private String vehicleId;
 }

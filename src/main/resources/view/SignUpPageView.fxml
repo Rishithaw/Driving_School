@@ -27,7 +27,7 @@
             <Font name="Pristina" size="40.0" />
          </font>
       </Text>
-      <ImageView fx:id="imgDriver" fitHeight="38.0" fitWidth="43.0" layoutX="171.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDriver" fitHeight="40.0" fitWidth="40.0" layoutX="171.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-driver-100.png" />
          </image>

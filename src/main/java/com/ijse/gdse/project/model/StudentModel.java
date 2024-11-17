@@ -22,16 +22,18 @@ public class StudentModel {
     }
 
     public boolean saveStudent(StudentDTO studentDTO) throws SQLException {
-        boolean isSaved = CrudUtil.execute("insert into student values(?,?,?,?,?,?,?,?,?)");
-                studentDTO.getStudent_id();
-                studentDTO.getName();
-                studentDTO.getNIC();
-                studentDTO.getDOB();
-                studentDTO.getGender();
-                studentDTO.getAddress();
-                studentDTO.getAssists();
-                studentDTO.getEmail();
-                studentDTO.getAdvance_payment();
+        boolean isSaved = CrudUtil.execute("insert into student values(?,?,?,?,?,?,?,?,?,?)",
+                studentDTO.getStudentId(),
+                studentDTO.getName(),
+                studentDTO.getNIC(),
+                studentDTO.getDOB(),
+                studentDTO.getGender(),
+                studentDTO.getAddress(),
+                studentDTO.getAssists(),
+                studentDTO.getEmail(),
+                studentDTO.getAdvancePayment(),
+                studentDTO.getVehicleId()
+        );
         return isSaved;
     }
 
@@ -48,7 +50,8 @@ public class StudentModel {
                     rst.getString(6),
                     rst.getString(7),
                     rst.getString(8),
-                    rst.getString(9)
+                    rst.getString(9),
+                    rst.getString(10)
             );
             studentDTOS.add(studentDTO);
         }
@@ -57,15 +60,17 @@ public class StudentModel {
 
     public boolean updateStudent(StudentDTO studentDTO) throws SQLException {
         return CrudUtil.execute(
-                "update student set name=?, Nic=?, DOB=?, gender=?, address=?, assists=?, email=?, advance_payment=?",
-                studentDTO.getName(),
-                studentDTO.getNIC(),
+                "update student set DOB=?, NIC=?, name=?, address=?, gender=?, helping_aids=?, advance_payment=?, email=?, vec_id=? where student_id=?",
                 studentDTO.getDOB(),
-                studentDTO.getGender(),
+                studentDTO.getNIC(),
+                studentDTO.getName(),
                 studentDTO.getAddress(),
+                studentDTO.getGender(),
                 studentDTO.getAssists(),
+                studentDTO.getAdvancePayment(),
                 studentDTO.getEmail(),
-                studentDTO.getAdvance_payment()
+                studentDTO.getVehicleId(),
+                studentDTO.getStudentId()
         );
     }
 
@@ -95,7 +100,8 @@ public class StudentModel {
                     rst.getString(6),
                     rst.getString(7),
                     rst.getString(8),
-                    rst.getString(9)
+                    rst.getString(9),
+                    rst.getString(10)
             );
         }
         return null;

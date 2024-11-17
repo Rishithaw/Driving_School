@@ -64,6 +64,9 @@ public class StudentController implements Initializable {
     private TableColumn<StudentTM, String> colPay;
 
     @FXML
+    private TableColumn<StudentTM, String> colVehicle;
+
+    @FXML
     private ImageView imgProfile;
 
     @FXML
@@ -96,6 +99,9 @@ public class StudentController implements Initializable {
     @FXML
     public TextField txtNic;
 
+    @FXML
+    private TextField txtVehicleID;
+
     StudentModel studentModel = new StudentModel();
 
     @Override
@@ -103,13 +109,14 @@ public class StudentController implements Initializable {
         cir.setFill(new ImagePattern(imgProfile.getImage()));
         colID.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("studentId"));
         colName.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("name"));
-        colNic.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("nic"));
+        colNic.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("NIC"));
         colDOB.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("DOB"));
         colGender.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("gender"));
         colAddress.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("address"));
-        colAssist.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("assist"));
+        colAssist.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("assists"));
         colEmail.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("email"));
-        colPay.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("advance payment"));
+        colPay.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("advancePayment"));
+        colVehicle.setCellValueFactory(new PropertyValueFactory<StudentTM, String>("vehicleId"));
 
         try {
             refreshPage();
@@ -134,6 +141,7 @@ public class StudentController implements Initializable {
         String assist = txtAssist.getText();
         String email = txtEmail.getText();
         String pay = txtPay.getText();
+        String vehicle  =txtVehicleID.getText();
 
         StudentDTO studentDTO = new StudentDTO(
                 studentId,
@@ -144,13 +152,24 @@ public class StudentController implements Initializable {
                 address,
                 assist,
                 email,
-                pay
+                pay,
+                vehicle
         );
 
-        boolean isSaved =studentModel.saveStudent(studentDTO);
+        boolean isSaved = studentModel.saveStudent(studentDTO);
         if (isSaved) {
-            refreshPage();
+            loadNextStudentId();
+            txtName.setText("");
+            txtNic.setText("");
+            txtDob.setText("");
+            txtGender.setText("");
+            txtAddress.setText("");
+            txtAssist.setText("");
+            txtEmail.setText("");
+            txtPay.setText("");
+            txtVehicleID.setText("");
             new Alert(Alert.AlertType.INFORMATION,"Successfully Saved").show();
+            loadTableData();
         } else {
             new Alert(Alert.AlertType.ERROR,"Failed to save Student").show();
         }
@@ -178,7 +197,7 @@ public class StudentController implements Initializable {
     void onClickTable(MouseEvent event) {
         StudentTM studentTM = tblStudent.getSelectionModel().getSelectedItem();
         if (studentTM != null) {
-            lblID.setText(studentTM.getStudent_id());
+            lblID.setText(studentTM.getStudentId());
             txtName.setText(studentTM.getName());
             txtNic.setText(studentTM.getNIC());
             txtDob.setText(studentTM.getDOB());
@@ -186,7 +205,8 @@ public class StudentController implements Initializable {
             txtAddress.setText(studentTM.getAddress());
             txtAssist.setText(studentTM.getAssists());
             txtEmail.setText(studentTM.getEmail());
-            txtPay.setText(studentTM.getAdvance_payment());
+            txtPay.setText(studentTM.getAdvancePayment());
+            txtVehicleID.setText(studentTM.getVehicleId());
 
             btnSave.setDisable(true);
 
@@ -215,21 +235,24 @@ public class StudentController implements Initializable {
         String assist = txtAssist.getText();
         String email = txtEmail.getText();
         String pay = txtPay.getText();
+        String vehicle = txtVehicleID.getText();
 
         StudentDTO studentDTO = new StudentDTO(
                 studentId,
-                name,
-                nic,
                 dob,
-                gender,
+                nic,
+                name,
                 address,
+                gender,
                 assist,
+                pay,
                 email,
-                pay
+                vehicle
         );
 
         boolean isUpdated = studentModel.updateStudent(studentDTO);
         if (isUpdated) {
+
             refreshPage();
             new Alert(Alert.AlertType.INFORMATION,"Successfully updated").show();
         } else {
@@ -254,24 +277,27 @@ public class StudentController implements Initializable {
         txtAssist.setText("");
         txtEmail.setText("");
         txtPay.setText("");
+        txtVehicleID.setText("");
     }
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
         ArrayList<StudentDTO> studentDTOS =studentModel.getAllStudent();
         ObservableList<StudentTM> studentTMS = FXCollections.observableArrayList();
         for (StudentDTO studentDTO : studentDTOS) {
-            StudentTM studentTM = new StudentTM(
-                    studentDTO.getStudent_id(),
-                    studentDTO.getName(),
-                    studentDTO.getNIC(),
-                    studentDTO.getDOB(),
-                    studentDTO.getGender(),
-                    studentDTO.getAddress(),
-                    studentDTO.getAssists(),
-                    studentDTO.getEmail(),
-                    studentDTO.getAdvance_payment()
-            );
-            studentTMS.add(studentTM);
+            StudentTM studentTM = new StudentTM();
+                    studentTM.setStudentId(studentDTO.getStudentId());
+                    studentTM.setName(studentDTO.getName());
+                    studentTM.setNIC(studentDTO.getNIC());
+                    studentTM.setDOB(studentDTO.getDOB());
+                    studentTM.setGender(studentDTO.getGender());
+                    studentTM.setAddress(studentDTO.getAddress());
+                    studentTM.setAssists(studentDTO.getAssists());
+                    studentTM.setEmail(studentDTO.getEmail());
+                    studentTM.setAdvancePayment(studentDTO.getAdvancePayment());
+                    studentTM.setVehicleId(studentDTO.getVehicleId());
+                    studentTMS.add(studentTM);
+            //);
+            //studentTMS.add(studentTM);
         }
         tblStudent.setItems(studentTMS);
     }

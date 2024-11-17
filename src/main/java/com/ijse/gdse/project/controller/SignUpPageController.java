@@ -3,7 +3,6 @@ package com.ijse.gdse.project.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -11,10 +10,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class SignUpPageController implements Initializable {
+public class SignUpPageController {
 
     @FXML
     private AnchorPane ancPane;
@@ -54,6 +51,7 @@ public class SignUpPageController implements Initializable {
 
     @FXML
     void loginOnAction(ActionEvent event) throws IOException {
+        storeData();
         navigateTo("/view/LoginPageView.fxml");
     }
 
@@ -74,8 +72,6 @@ public class SignUpPageController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    private void storeData() {
     }
 }
