@@ -196,6 +196,11 @@ public class StudentController implements Initializable {
     }
 
     @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        refreshPage();
+    }
+
+    @FXML
     void updateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String namePattern = "^[A-Za-z ]+$";
         String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";

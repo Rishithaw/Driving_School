@@ -66,8 +66,23 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_RIGHT" layoutX="616.0" layoutY="333.0" spacing="10.0">
+      <TableView layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="834.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="79.99996757507324" text="Booking ID" />
+          <TableColumn fx:id="colTime" prefWidth="110.39997100830078" text="Time" />
+            <TableColumn fx:id="colDate" prefWidth="109.60003662109375" text="Date" />
+            <TableColumn fx:id="colStID" prefWidth="90.39996337890625" text="Student ID" />
+            <TableColumn fx:id="colStName" prefWidth="212.00003051757812" text="Student Name" />
+            <TableColumn fx:id="colReason" prefWidth="236.00006103515625" text="Reschedule Reason" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT" layoutX="539.0" layoutY="339.0" spacing="10.0">
          <children>
+            <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
                <font>
                   <Font size="14.0" />
@@ -85,15 +100,5 @@
             </Button>
          </children>
       </HBox>
-      <TableView layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="834.0">
-        <columns>
-          <TableColumn fx:id="colID" prefWidth="79.99996757507324" text="Booking ID" />
-          <TableColumn fx:id="colTime" prefWidth="110.39997100830078" text="Time" />
-            <TableColumn fx:id="colDate" prefWidth="109.60003662109375" text="Date" />
-            <TableColumn fx:id="colStID" prefWidth="90.39996337890625" text="Student ID" />
-            <TableColumn fx:id="colStName" prefWidth="212.00003051757812" text="Student Name" />
-            <TableColumn fx:id="colReason" prefWidth="236.00006103515625" text="Reschedule Reason" />
-        </columns>
-      </TableView>
    </children>
 </AnchorPane>

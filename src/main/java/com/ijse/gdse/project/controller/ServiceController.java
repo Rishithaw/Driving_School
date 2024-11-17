@@ -9,6 +9,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
+
 public class ServiceController {
 
     @FXML
@@ -58,6 +60,11 @@ public class ServiceController {
     @FXML
     void deleteOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //refreshPage();
     }
 
     @FXML

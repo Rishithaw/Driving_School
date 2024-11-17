@@ -10,60 +10,60 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anc" prefHeight="522.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.LoginPageController">
+<AnchorPane fx:id="anc" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.LoginPageController">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="810.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../images/pictures/Background.jpg" />
          </image>
       </ImageView>
-      <Text fill="#593f1e" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BetterDrive">
+      <Text fill="#593f1e" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BetterDrive">
          <font>
-            <Font name="Pristina" size="36.0" />
+            <Font name="Pristina" size="40.0" />
          </font>
       </Text>
-      <Text layoutX="25.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dring made simple">
+      <Text layoutX="20.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dring made simple">
          <font>
-            <Font name="Pristina" size="16.0" />
+            <Font name="Pristina" size="20.0" />
          </font>
       </Text>
-      <ImageView fx:id="imgDriver" fitHeight="30.0" fitWidth="30.0" layoutX="151.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDriver" fitHeight="40.0" fitWidth="40.0" layoutX="171.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-driver-100.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="250.0" layoutX="160.0" layoutY="136.0" opacity="0.69" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 40; -fx-arc-width: 40; -fx-stroke-width: 0;" width="490.0" />
-      <Button fx:id="btnLogin" layoutX="304.0" layoutY="333.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="37.0" prefWidth="194.0" style="-fx-background-color: F2380F; -fx-background-radius: 10;" text="Login" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="250.0" layoutX="255.0" layoutY="175.0" opacity="0.69" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 40; -fx-arc-width: 40; -fx-stroke-width: 0;" width="490.0" />
+      <Button fx:id="btnLogin" layoutX="399.0" layoutY="372.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="37.0" prefWidth="194.0" style="-fx-background-color: F2380F; -fx-background-radius: 10;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="txtUsername" layoutX="201.0" layoutY="206.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: F2380F;" />
-      <ImageView fx:id="imgUsername" fitHeight="30.0" fitWidth="30.0" layoutX="205.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtUsername" layoutX="296.0" layoutY="245.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: F2380F;" />
+      <ImageView fx:id="imgUsername" fitHeight="30.0" fitWidth="30.0" layoutX="300.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-username-64.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgPassword" fitHeight="30.0" fitWidth="30.0" layoutX="205.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPassword" fitHeight="30.0" fitWidth="30.0" layoutX="300.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-password-32.png" />
          </image>
       </ImageView>
-      <Text fill="#f2380f" layoutX="243.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text fill="#f2380f" layoutX="338.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="#f2380f" layoutX="243.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text fill="#f2380f" layoutX="338.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font name="Book Antiqua" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="btnPassword" layoutX="321.0" layoutY="263.0" mnemonicParsing="false" onAction="#passwordOnAction" style="-fx-background-color: none;" text="Forgot Password?" textFill="#593f1e">
+      <Button fx:id="btnPassword" layoutX="416.0" layoutY="302.0" mnemonicParsing="false" onAction="#passwordOnAction" style="-fx-background-color: none;" text="Forgot Password?" textFill="#593f1e">
          <font>
             <Font name="Book Antiqua" size="12.0" />
          </font>
       </Button>
-      <PasswordField fx:id="txtPassword" layoutX="201.0" layoutY="291.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: F2380F;" />
+      <PasswordField fx:id="txtPassword" layoutX="296.0" layoutY="330.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: F2380F;" />
    </children>
 </AnchorPane>

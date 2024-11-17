@@ -14,6 +14,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class TestController implements Initializable {
@@ -80,6 +81,11 @@ public class TestController implements Initializable {
     @FXML
     void deleteOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+       // refreshPage();
     }
 
     @FXML

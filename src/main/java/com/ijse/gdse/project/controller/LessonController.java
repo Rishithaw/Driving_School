@@ -136,6 +136,11 @@ public class LessonController implements Initializable {
     }
 
     @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        refreshPage();
+    }
+
+    @FXML
     void updateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String lessonId = lblID.getText();
         String duration = txtDuration.getText();

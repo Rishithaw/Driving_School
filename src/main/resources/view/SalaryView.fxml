@@ -53,25 +53,6 @@
          </font>
       </Label>
       <TextField fx:id="txtHoliday" layoutX="429.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="617.0" layoutY="343.0" spacing="10.0">
-         <children>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #fcf456;" text="Update">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #ff4141;" text="Delete">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
       <TableView layoutX="6.0" layoutY="391.0" prefHeight="194.0" prefWidth="844.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="101.60003471374512" text="Salary ID" />
@@ -90,5 +71,29 @@
       </ImageView>
       <Circle fx:id="cir" fill="WHITE" layoutX="818.0" layoutY="49.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <TextField fx:id="txtDOP" layoutX="60.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <HBox alignment="CENTER_RIGHT" layoutX="543.0" layoutY="349.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #fcf456;" text="Update">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #ff4141;" text="Delete">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

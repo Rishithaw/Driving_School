@@ -54,25 +54,6 @@
          </font>
       </Label>
       <TextField fx:id="txtTime" layoutX="493.0" layoutY="166.0" prefHeight="28.0" prefWidth="190.0" promptText="HH:MM" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="609.0" layoutY="365.0" spacing="10.0">
-         <children>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #fcf456;" text="Update">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #ff4141;" text="Delete">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
       <Label fx:id="lblID1" layoutX="608.0" layoutY="131.0" text="1">
          <font>
             <Font size="18.0" />
@@ -95,5 +76,29 @@
         </columns>
       </TableView>
       <TextField fx:id="txtTestDate" layoutX="60.0" layoutY="289.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <HBox alignment="CENTER_RIGHT" layoutX="545.0" layoutY="374.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #fcf456;" text="Update">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #ff4141;" text="Delete">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

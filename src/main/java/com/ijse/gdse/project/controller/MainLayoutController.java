@@ -45,6 +45,16 @@ public class MainLayoutController implements Initializable {
     }
 
     @FXML
+    void StaffImgOnAction(MouseEvent event) {
+        navigateTo("/view/StaffView.fxml");
+    }
+
+    @FXML
+    void StaffOnAction(ActionEvent event) {
+        navigateTo("/view/StaffView.fxml");
+    }
+
+    @FXML
     void bookingImgOnAction(MouseEvent event) {
         navigateTo("/view/BookingView.fxml");
     }
@@ -157,6 +167,6 @@ public class MainLayoutController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigateTo("/view/DashBoardView.fxml");
+        navigateTo("/view/StudentView.fxml");
     }
 }

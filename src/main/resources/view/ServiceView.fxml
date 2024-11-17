@@ -85,13 +85,13 @@
             </Button>
          </children>
       </HBox>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="639.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="806.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="794.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pictures/Profile.jpg" />
          </image>
       </ImageView>
-      <Circle fx:id="cir" fill="WHITE" layoutX="818.0" layoutY="59.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="cir" fill="WHITE" layoutX="808.0" layoutY="39.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <TextField fx:id="txtDOS" layoutX="50.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>

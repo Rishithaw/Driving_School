@@ -61,8 +61,22 @@
       <TextField fx:id="txtMechanic" layoutX="510.0" layoutY="273.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TextField fx:id="txtInstructor" layoutX="510.0" layoutY="158.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TextField fx:id="txtLessonFee" layoutX="50.0" layoutY="273.0" prefHeight="20.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="606.0" layoutY="352.0" spacing="10.0">
+      <TableView fx:id="tblVehicle" layoutX="7.0" layoutY="410.0" onMouseClicked="#onClickTable" prefHeight="175.0" prefWidth="840.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="115.20001077651978" text="Vehicle ID" />
+          <TableColumn fx:id="colVehicleType" prefWidth="178.39997100830078" text="Vehicle Type" />
+            <TableColumn fx:id="colLessonFee" prefWidth="191.20001220703125" text="Lessson Fee" />
+            <TableColumn fx:id="colInstructor" prefWidth="181.60000610351562" text="Instructor" />
+            <TableColumn fx:id="colMechanic" prefWidth="168.7999267578125" text="Mechanic" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT" layoutX="535.0" layoutY="367.0" spacing="10.0">
          <children>
+            <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
                <font>
                   <Font size="14.0" />
@@ -80,14 +94,5 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tblVehicle" layoutX="7.0" layoutY="410.0" onMouseClicked="#onClickTable" prefHeight="175.0" prefWidth="840.0">
-        <columns>
-          <TableColumn fx:id="colID" prefWidth="115.20001077651978" text="Vehicle ID" />
-          <TableColumn fx:id="colVehicleType" prefWidth="178.39997100830078" text="Vehicle Type" />
-            <TableColumn fx:id="colLessonFee" prefWidth="191.20001220703125" text="Lessson Fee" />
-            <TableColumn fx:id="colInstructor" prefWidth="181.60000610351562" text="Instructor" />
-            <TableColumn fx:id="colMechanic" prefWidth="168.7999267578125" text="Mechanic" />
-        </columns>
-      </TableView>
    </children>
 </AnchorPane>

@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
+import java.sql.SQLException;
+
 public class PaymentController {
 
     @FXML
@@ -80,6 +82,11 @@ public class PaymentController {
     @FXML
     void deleteOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //refreshPage();
     }
 
     @FXML

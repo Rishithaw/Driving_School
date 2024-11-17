@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
+
 public class SalaryController {
 
     @FXML
@@ -58,6 +60,11 @@ public class SalaryController {
     @FXML
     void deleteOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //refreshPage();
     }
 
     @FXML

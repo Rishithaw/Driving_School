@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
+import java.sql.SQLException;
+
 public class BookingController {
 
     @FXML
@@ -70,6 +72,11 @@ public class BookingController {
     @FXML
     void deleteOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //refreshPage();
     }
 
     @FXML

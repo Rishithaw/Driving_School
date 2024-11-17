@@ -14,6 +14,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class VehicleController implements Initializable {
@@ -79,6 +80,11 @@ public class VehicleController implements Initializable {
     @FXML
     void onClickTable(MouseEvent event) {
 
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //refreshPage();
     }
 
     @FXML
