@@ -81,8 +81,37 @@ public class VehicleController implements Initializable {
     VehicleModel vehicleModel = new VehicleModel();
 
     @FXML
-    void SaveOnAction(ActionEvent event) {
+    void SaveOnAction(ActionEvent event) throws SQLException {
+        String vehicleId = lblID.getText();
+        String vehicleType = txtVehicle.getText();
+        String lessonFee = txtLessonFee.getText();
+        String admin = txtAdmin.getText();
+        String instructor = txtInstructor.getText();
+        String mechanic = txtMechanic.getText();
 
+        VehicleDTO vehicleDTO = new VehicleDTO(
+                vehicleId,
+                vehicleType,
+                lessonFee,
+                admin,
+                instructor,
+                mechanic
+        );
+
+        boolean isSaved = vehicleModel.saveVehicle(vehicleDTO);
+
+        if (isSaved) {
+            loadNextVehicleId();
+            txtVehicle.setText("");
+            txtLessonFee.setText("");
+            txtAdmin.setText("");
+            txtInstructor.setText("");
+            txtMechanic.setText("");
+            new Alert(Alert.AlertType.INFORMATION, "Vehicle Saved", ButtonType.OK).show();
+            loadTableData();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed To Save Vehicle", ButtonType.OK).show();
+        }
     }
 
     @FXML
@@ -96,9 +125,9 @@ public class VehicleController implements Initializable {
             boolean isDeleted = vehicleModel.deleteVehicle(vehicleId);
             if (isDeleted) {
                 refreshPage();
-                new Alert(Alert.AlertType.INFORMATION,"Successfully deleted").show();
+                new Alert(Alert.AlertType.INFORMATION,"Successfully Deleted").show();
             } else {
-                new Alert(Alert.AlertType.ERROR,"Fail to delete student").show();
+                new Alert(Alert.AlertType.ERROR,"Fail To Delete Vehicle").show();
             }
         }
     }
@@ -127,7 +156,37 @@ public class VehicleController implements Initializable {
     }
 
     @FXML
-    void updateOnAction(ActionEvent event) {
+    void updateOnAction(ActionEvent event) throws SQLException {
+        String vehicleId = lblID.getText();
+        String vehicleType = txtVehicle.getText();
+        String lessonFee = txtLessonFee.getText();
+        String admin = txtAdmin.getText();
+        String instructor = txtInstructor.getText();
+        String mechanic = txtMechanic.getText();
+
+        VehicleDTO vehicleDTO = new VehicleDTO(
+                vehicleId,
+                vehicleType,
+                lessonFee,
+                admin,
+                instructor,
+                mechanic
+        );
+
+        boolean isUpdated = vehicleModel.updateVehicle(vehicleDTO);
+
+        if (isUpdated) {
+            loadNextVehicleId();
+            txtVehicle.setText("");
+            txtLessonFee.setText("");
+            txtAdmin.setText("");
+            txtInstructor.setText("");
+            txtMechanic.setText("");
+            new Alert(Alert.AlertType.INFORMATION, "Vehicle Updated", ButtonType.OK).show();
+            loadTableData();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed To Update Vehicle", ButtonType.OK).show();
+        }
 
     }
 
