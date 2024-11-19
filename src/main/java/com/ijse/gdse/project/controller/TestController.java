@@ -3,6 +3,8 @@ package com.ijse.gdse.project.controller;
 import com.ijse.gdse.project.dto.TestDTO;
 import com.ijse.gdse.project.dto.tm.TestTM;
 import com.ijse.gdse.project.model.TestModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +17,8 @@ import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TestController implements Initializable {
@@ -59,7 +63,7 @@ public class TestController implements Initializable {
     private Label lblID1;
 
     @FXML
-    private TableView<?> tblTest;
+    private TableView<TestTM> tblTest;
 
     @FXML
     private TextField txtInstructor;
@@ -98,20 +102,46 @@ public class TestController implements Initializable {
             txtTime.setText("");
             txtStID.setText("");
             txtInstructor.setText("");
-            new Alert(Alert.AlertType.INFORMATION,"Successfully Saved").show();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Failed to save Test").show();
+            new Alert(Alert.AlertType.INFORMATION, "Successfully Saved").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed to save Test").show();
         }
     }
 
     @FXML
-    void deleteOnAction(ActionEvent event) {
+    void deleteOnAction(ActionEvent event) throws SQLException {
+        String testId = lblID.getText();
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
+
+        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
+            boolean isDeleted = testModel.deleteTest(testId);
+            if (isDeleted) {
+                refreshPage();
+                new Alert(Alert.AlertType.INFORMATION,"Successfully deleted").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR,"Fail to delete test").show();
+            }
+        }
     }
 
     @FXML
     void onClickTable(MouseEvent event) {
+        TestTM testTM = tblTest.getSelectionModel().getSelectedItem();
+        if (testTM != null) {
+            lblID.setText(testTM.getTestId());
+            txtTestDate.setText(testTM.getDate());
+            txtTime.setText(testTM.getTime());
+            txtStID.setText(testTM.getStudentId());
+            txtInstructor.setText(testTM.getInstructorId());
 
+            btnSave.setDisable(true);
+
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+
+        }
     }
 
     @FXML
@@ -120,8 +150,28 @@ public class TestController implements Initializable {
     }
 
     @FXML
-    void updateOnAction(ActionEvent event) {
+    void updateOnAction(ActionEvent event) throws SQLException {
+        String testId = lblID.getText();
+        String date = txtTestDate.getText();
+        String time = txtTime.getText();
+        String studentId = txtStID.getText();
+        String instructor = txtInstructor.getText();
 
+        TestDTO testDTO = new TestDTO(
+                testId,
+                date,
+                time,
+                studentId,
+                instructor
+        );
+
+        boolean isUpdated = testModel.updateTest(testDTO);
+        if (isUpdated) {
+            refreshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Successfully Updated").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed to update Test").show();
+        }
     }
 
     @Override
@@ -137,7 +187,7 @@ public class TestController implements Initializable {
             refreshPage();
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR,"Fail to load Test id").show();
+            new Alert(Alert.AlertType.ERROR, "Fail to load Test id").show();
         }
     }
 
@@ -160,7 +210,18 @@ public class TestController implements Initializable {
         lblID.setText(nextTestId);
     }
 
-    private void loadTableData() {
-
+    private void loadTableData() throws SQLException {
+        ArrayList<TestDTO> testDTOS = testModel.getAllTest();
+        ObservableList<TestTM> testTMS = FXCollections.observableArrayList();
+        for (TestDTO testDTO : testDTOS) {
+            TestTM testTM = new TestTM();
+            testTM.setTestId(testDTO.getTestId());
+            testTM.setDate(testDTO.getDate());
+            testTM.setTime(testDTO.getTime());
+            testTM.setInstructorId(testDTO.getInstructorId());
+            testTM.setStudentId(testDTO.getStudentId());
+            testTMS.add(testTM);
+        }
+        tblTest.setItems(testTMS);
     }
 }
