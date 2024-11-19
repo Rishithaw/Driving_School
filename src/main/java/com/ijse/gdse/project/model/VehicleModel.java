@@ -22,24 +22,24 @@ public class VehicleModel {
 
     public boolean saveVehicle(VehicleDTO vehicleDTO) throws SQLException {
         boolean isSaved = CrudUtil.execute("insert into vehicle values(?,?,?,?,?,?)",
-                vehicleDTO.getVec_id(),
-                vehicleDTO.getVehicle_type(),
-                vehicleDTO.getLesson_fee(),
-                vehicleDTO.getAd_id(),
-                vehicleDTO.getIn_id(),
-                vehicleDTO.getMec_id()
+                vehicleDTO.getVehicleId(),
+                vehicleDTO.getVehicleType(),
+                vehicleDTO.getLessonFee(),
+                vehicleDTO.getAdmin(),
+                vehicleDTO.getInstructor(),
+                vehicleDTO.getMechanic()
                 );
         return isSaved;
     }
 
     public boolean updateVehicle(VehicleDTO vehicleDTO) throws SQLException {
-        return CrudUtil.execute("update vehicle set vehicle_type=?, lesson_fee=?, ad_id=?, mec_id=? where vec_id=?",
-                vehicleDTO.getVehicle_type(),
-                vehicleDTO.getLesson_fee(),
-                vehicleDTO.getAd_id(),
-                vehicleDTO.getIn_id(),
-                vehicleDTO.getMec_id(),
-                vehicleDTO.getVec_id()
+        return CrudUtil.execute("update vehicle set vehicle_type=?, lesson_fee=?, ad_id=?,in_id=?, mec_id=? where vec_id=?",
+                vehicleDTO.getVehicleType(),
+                vehicleDTO.getLessonFee(),
+                vehicleDTO.getAdmin(),
+                vehicleDTO.getInstructor(),
+                vehicleDTO.getMechanic(),
+                vehicleDTO.getVehicleId()
         );
     }
 

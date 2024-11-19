@@ -35,6 +35,9 @@ public class StartPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        imgBackground.setPreserveRatio(true);  // Maintain aspect ratio
+//        imgBackground.fitWidthProperty().bind(ancPane.widthProperty());  // Bind width to the root pane width
+//        imgBackground.fitHeightProperty().bind(ancPane.heightProperty());
 
     }
 }

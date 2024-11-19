@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class LessonModel {
     public String getNextLessonId() throws SQLException {
-        ResultSet rst = CrudUtil.execute("select lesson_id from lesson order by lesson_id desc limit 1");
+        ResultSet rst = CrudUtil.execute("select le_id from lesson order by le_id desc limit 1");
         if (rst.next()) {
             String lastId = rst.getString(1);
             String substring = lastId.substring(1);
@@ -22,10 +22,10 @@ public class LessonModel {
 
     public boolean saveLesson(LessonDTO lessonDTO) throws SQLException {
         boolean isSaved = CrudUtil.execute("insert into lesson values(?,?,?,?)");
-            lessonDTO.getLe_id();
-            lessonDTO.getIn_id();
+            lessonDTO.getLessonId();
+            lessonDTO.getInstructorId();
             lessonDTO.getLessonName();
-            lessonDTO.getTime_period();
+            lessonDTO.getTimePeriod();
             return isSaved;
     }
 
@@ -46,9 +46,9 @@ public class LessonModel {
 
     public boolean updateLesson(LessonDTO lessonDTO) throws SQLException {
         return CrudUtil.execute("update lesson set in_id=?, description=?, time_period=?",
-                lessonDTO.getIn_id(),
+                lessonDTO.getInstructorId(),
                 lessonDTO.getLessonName(),
-                lessonDTO.getTime_period()
+                lessonDTO.getTimePeriod()
         );
     }
 

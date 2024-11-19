@@ -32,13 +32,13 @@
             <Font name="Book Antiqua" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="131.0" text="Student Name">
+      <Label layoutX="493.0" layoutY="135.0" text="Student ID">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStName" layoutX="60.0" layoutY="166.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="493.0" layoutY="131.0" text="Test Time">
+      <TextField fx:id="txtStID" layoutX="493.0" layoutY="170.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="60.0" layoutY="131.0" text="Test Time">
          <font>
             <Font size="20.0" />
          </font>
@@ -48,13 +48,8 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblID" layoutX="204.0" layoutY="131.0" text="1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtTime" layoutX="493.0" layoutY="166.0" prefHeight="28.0" prefWidth="190.0" promptText="HH:MM" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label fx:id="lblID1" layoutX="608.0" layoutY="131.0" text="1">
+      <TextField fx:id="txtTime" layoutX="60.0" layoutY="166.0" prefHeight="28.0" prefWidth="190.0" promptText="HH:MM" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label fx:id="lblID" layoutX="164.0" layoutY="131.0" text="1">
          <font>
             <Font size="18.0" />
          </font>
@@ -65,18 +60,17 @@
          </font>
       </Label>
       <TextField fx:id="txtInstructor" layoutX="493.0" layoutY="289.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TableView fx:id="tblTest" layoutX="9.0" layoutY="422.0" prefHeight="163.0" prefWidth="838.0">
+      <TableView fx:id="tblTest" layoutX="9.0" layoutY="388.0" onMouseClicked="#onClickTable" prefHeight="197.0" prefWidth="838.0">
         <columns>
-          <TableColumn fx:id="colID" prefWidth="87.20001029968262" text="Test ID" />
-          <TableColumn fx:id="colStID" prefWidth="118.39997100830078" text="Student ID" />
-            <TableColumn fx:id="colStName" prefWidth="153.60003662109375" text="Student Name" />
-            <TableColumn fx:id="colDate" prefWidth="167.19998168945312" text="Date" />
-            <TableColumn fx:id="colTime" prefWidth="128.79998779296875" text="Time" />
-            <TableColumn fx:id="colInstructor" prefWidth="180.800048828125" text="Instructor" />
+          <TableColumn fx:id="colID" prefWidth="119.99999809265137" text="Test ID" />
+          <TableColumn fx:id="colStID" prefWidth="147.20001983642578" text="Student ID" />
+            <TableColumn fx:id="colDate" prefWidth="205.60003662109375" text="Date" />
+            <TableColumn fx:id="colTime" prefWidth="186.40005493164062" text="Time" />
+            <TableColumn fx:id="colInstructor" prefWidth="179.20001220703125" text="Instructor" />
         </columns>
       </TableView>
       <TextField fx:id="txtTestDate" layoutX="60.0" layoutY="289.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <HBox alignment="CENTER_RIGHT" layoutX="545.0" layoutY="374.0" spacing="10.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="546.0" layoutY="346.0" spacing="10.0">
          <children>
             <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
                <font>

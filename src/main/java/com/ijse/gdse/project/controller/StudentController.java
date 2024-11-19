@@ -143,35 +143,61 @@ public class StudentController implements Initializable {
         String pay = txtPay.getText();
         String vehicle  =txtVehicleID.getText();
 
-        StudentDTO studentDTO = new StudentDTO(
-                studentId,
-                name,
-                nic,
-                dob,
-                gender,
-                address,
-                assist,
-                email,
-                pay,
-                vehicle
-        );
+        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #000000;");
+        txtNic.setStyle(txtNic.getStyle() + ";-fx-border-color: #000000;");
+        txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: #000000;");
 
-        boolean isSaved = studentModel.saveStudent(studentDTO);
-        if (isSaved) {
-            loadNextStudentId();
-            txtName.setText("");
-            txtNic.setText("");
-            txtDob.setText("");
-            txtGender.setText("");
-            txtAddress.setText("");
-            txtAssist.setText("");
-            txtEmail.setText("");
-            txtPay.setText("");
-            txtVehicleID.setText("");
-            new Alert(Alert.AlertType.INFORMATION,"Successfully Saved").show();
-            loadTableData();
-        } else {
-            new Alert(Alert.AlertType.ERROR,"Failed to save Student").show();
+        boolean isValidName = name.matches(namePattern);
+        boolean isValidNic = nic.matches(nicPattern);
+        boolean isValidEmail = email.matches(emailPattern);
+
+        if (!isValidName) {
+            System.out.println(txtName.getStyle());
+            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
+            System.out.println("Invalid name.............");
+//            return;
+        }
+
+        if (!isValidNic) {
+            txtNic.setStyle(txtNic.getStyle() + ";-fx-border-color: red;");
+//            return;
+        }
+
+        if (!isValidEmail) {
+            txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: red;");
+        }
+
+        if (isValidName && isValidNic && isValidEmail) {
+            StudentDTO studentDTO = new StudentDTO(
+                    studentId,
+                    name,
+                    nic,
+                    dob,
+                    gender,
+                    address,
+                    assist,
+                    email,
+                    pay,
+                    vehicle
+            );
+
+            boolean isSaved = studentModel.saveStudent(studentDTO);
+            if (isSaved) {
+                loadNextStudentId();
+                txtName.setText("");
+                txtNic.setText("");
+                txtDob.setText("");
+                txtGender.setText("");
+                txtAddress.setText("");
+                txtAssist.setText("");
+                txtEmail.setText("");
+                txtPay.setText("");
+                txtVehicleID.setText("");
+                new Alert(Alert.AlertType.INFORMATION,"Successfully Saved").show();
+                loadTableData();
+            } else {
+                new Alert(Alert.AlertType.ERROR,"Failed to save Student").show();
+            }
         }
     }
 
@@ -226,6 +252,7 @@ public class StudentController implements Initializable {
         String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";
         String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
+
         String studentId = lblID.getText();
         String name = txtName.getText();
         String nic = txtNic.getText();
@@ -237,28 +264,55 @@ public class StudentController implements Initializable {
         String pay = txtPay.getText();
         String vehicle = txtVehicleID.getText();
 
-        StudentDTO studentDTO = new StudentDTO(
-                studentId,
-                dob,
-                nic,
-                name,
-                address,
-                gender,
-                assist,
-                pay,
-                email,
-                vehicle
-        );
+        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #000000;");
+        txtNic.setStyle(txtNic.getStyle() + ";-fx-border-color: #000000;");
+        txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: #000000;");
 
-        boolean isUpdated = studentModel.updateStudent(studentDTO);
-        if (isUpdated) {
+        boolean isValidName = name.matches(namePattern);
+        boolean isValidNic = nic.matches(nicPattern);
+        boolean isValidEmail = email.matches(emailPattern);
 
-            refreshPage();
-            new Alert(Alert.AlertType.INFORMATION,"Successfully updated").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR,"Fail to update student").show();
-
+        if (!isValidName) {
+            System.out.println(txtName.getStyle());
+            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
+            System.out.println("Invalid name.............");
+//            return;
         }
+
+        if (!isValidNic) {
+            txtNic.setStyle(txtNic.getStyle() + ";-fx-border-color: red;");
+//            return;
+        }
+
+        if (!isValidEmail) {
+            txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: red;");
+        }
+
+        if (isValidName && isValidNic && isValidEmail) {
+            StudentDTO studentDTO = new StudentDTO(
+                    studentId,
+                    dob,
+                    nic,
+                    name,
+                    address,
+                    gender,
+                    assist,
+                    pay,
+                    email,
+                    vehicle
+            );
+
+            boolean isUpdated = studentModel.updateStudent(studentDTO);
+            if (isUpdated) {
+
+                refreshPage();
+                new Alert(Alert.AlertType.INFORMATION,"Successfully updated").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR,"Fail to update student").show();
+
+            }
+        }
+
     }
 
     private void refreshPage() throws SQLException, ClassNotFoundException {

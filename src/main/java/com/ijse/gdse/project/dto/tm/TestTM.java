@@ -7,9 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class LessonTM {
-    private String lessonId;
-    private String lessonName;
-    private String timePeriod;
+public class TestTM {
+    private String testId;
+    private String date;
+    private String time;
+    private String studentId;
     private String instructorId;
 }

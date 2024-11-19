@@ -36,6 +36,9 @@ public class LessonController implements Initializable {
     private Circle cir;
 
     @FXML
+    private ComboBox<?> cmbStName;
+
+    @FXML
     private TableColumn<LessonTM, String> colDuration;
 
     @FXML
@@ -123,10 +126,10 @@ public class LessonController implements Initializable {
     void onClickTable(MouseEvent event) {
         LessonTM lessonTM = tblLesson.getSelectionModel().getSelectedItem();
         if (lessonTM != null) {
-            lblID.setText(lessonTM.getLe_id());
+            lblID.setText(lessonTM.getLessonId());
             txtLessonName.setText(lessonTM.getLessonName());
-            txtDuration.setText(lessonTM.getTime_period());
-            txtInstructor.setText(lessonTM.getIn_id());
+            txtDuration.setText(lessonTM.getTimePeriod());
+            txtInstructor.setText(lessonTM.getInstructorId());
 
             btnSave.setDisable(true);
 
@@ -168,8 +171,8 @@ public class LessonController implements Initializable {
         cir.setFill(new ImagePattern(imgProfile.getImage()));
         colID.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("lessonId"));
         colLessonName.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("LessonName"));
-        colStId.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("StudentId"));
-        colStName.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("studentName"));
+//        colStId.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("StudentId"));
+//        colStName.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("studentName"));
         colDuration.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("duration"));
         colInstructor.setCellValueFactory(new PropertyValueFactory<LessonTM, String>("instructor"));
 
@@ -177,11 +180,11 @@ public class LessonController implements Initializable {
             refreshPage();
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR,"Fail to load customer id").show();
+            new Alert(Alert.AlertType.ERROR,"Fail to load Lesson id").show();
         }
     }
 
-    private void refreshPage() throws SQLException, ClassNotFoundException {
+    private void refreshPage() throws SQLException {
         loadNextLessonId();
         loadTableData();
         btnSave.setDisable(false);
@@ -194,13 +197,12 @@ public class LessonController implements Initializable {
         ArrayList<LessonDTO> lessonDTOS = lessonModel.getAllLesson();
         ObservableList<LessonTM> lessonTMS = FXCollections.observableArrayList();
         for (LessonDTO lessonDTO : lessonDTOS) {
-            LessonTM lessonTM = new LessonTM(
-                    lessonDTO.getLe_id(),
-                    lessonDTO.getIn_id(),
-                    lessonDTO.getLessonName(),
-                    lessonDTO.getTime_period()
-            );
-            lessonTMS.add(lessonTM);
+            LessonTM lessonTM = new LessonTM();
+                    lessonTM.setLessonId(lessonDTO.getLessonId());
+                    lessonTM.setInstructorId(lessonDTO.getInstructorId());
+                    lessonTM.setLessonName(lessonDTO.getLessonName());
+                    lessonTM.setTimePeriod(lessonDTO.getTimePeriod());
+                    lessonTMS.add(lessonTM);
         }
         tblLesson.setItems(lessonTMS);
     }

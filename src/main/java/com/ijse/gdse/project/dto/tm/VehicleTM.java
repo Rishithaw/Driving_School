@@ -8,10 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class VehicleTM {
-    private String vec_id;
-    private String vehicle_type;
-    private String lesson_fee;
-    private String ad_id;
-    private String in_id;
-    private String mec_id;
+    private String vehicleId;
+    private String vehicleType;
+    private String lessonFee;
+    private String admin;
+    private String instructor;
+    private String mechanic;
 }

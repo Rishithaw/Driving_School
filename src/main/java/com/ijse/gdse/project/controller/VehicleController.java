@@ -136,12 +136,12 @@ public class VehicleController implements Initializable {
     void onClickTable(MouseEvent event) {
         VehicleTM vehicleTM = tblVehicle.getSelectionModel().getSelectedItem();
         if (vehicleTM != null) {
-            lblID.setText(vehicleTM.getVec_id());
-            txtVehicle.setText(vehicleTM.getVehicle_type());
-            txtLessonFee.setText(vehicleTM.getLesson_fee());
-            txtAdmin.setText(vehicleTM.getAd_id());
-            txtInstructor.setText(vehicleTM.getIn_id());
-            txtMechanic.setText(vehicleTM.getMec_id());
+            lblID.setText(vehicleTM.getVehicleId());
+            txtVehicle.setText(vehicleTM.getVehicleType());
+            txtLessonFee.setText(vehicleTM.getLessonFee());
+            txtAdmin.setText(vehicleTM.getAdmin());
+            txtInstructor.setText(vehicleTM.getInstructor());
+            txtMechanic.setText(vehicleTM.getMechanic());
 
             btnSave.setDisable(true);
 
@@ -227,12 +227,13 @@ public class VehicleController implements Initializable {
         ObservableList<VehicleTM> vehicleTMS = FXCollections.observableArrayList();
         for (VehicleDTO vehicleDTO : vehicleDTOS) {
             VehicleTM vehicleTM = new VehicleTM();
-            vehicleTM.setVec_id(vehicleDTO.getVec_id());
-            vehicleTM.setVehicle_type(vehicleDTO.getVehicle_type());
-            vehicleTM.setLesson_fee(vehicleDTO.getLesson_fee());
-            vehicleTM.setAd_id(vehicleDTO.getAd_id());
-            vehicleTM.setIn_id(vehicleDTO.getIn_id());
-            vehicleTM.setMec_id(vehicleDTO.getMec_id());
+            vehicleTM.setVehicleId(vehicleDTO.getVehicleId());
+            vehicleTM.setVehicleType(vehicleDTO.getVehicleType());
+            vehicleTM.setLessonFee(vehicleDTO.getLessonFee());
+            vehicleTM.setAdmin(vehicleDTO.getAdmin());
+            vehicleTM.setInstructor(vehicleDTO.getInstructor());
+            vehicleTM.setMechanic(vehicleDTO.getMechanic());
+            vehicleTMS.add(vehicleTM);
         }
         tblVehicle.setItems(vehicleTMS);
     }
