@@ -22,7 +22,7 @@ public class StudentModel {
     }
 
     public boolean saveStudent(StudentDTO studentDTO) throws SQLException {
-        boolean isSaved = CrudUtil.execute("insert into student values(?,?,?,?,?,?,?,?,?,?)",
+        return CrudUtil.execute("insert into student values(?,?,?,?,?,?,?,?,?,?)",
                 studentDTO.getStudentId(),
                 studentDTO.getName(),
                 studentDTO.getNIC(),
@@ -34,7 +34,6 @@ public class StudentModel {
                 studentDTO.getAdvancePayment(),
                 studentDTO.getVehicleId()
         );
-        return isSaved;
     }
 
     public ArrayList<StudentDTO> getAllStudent() throws SQLException {
