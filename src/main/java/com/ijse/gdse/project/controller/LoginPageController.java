@@ -45,7 +45,7 @@ public class LoginPageController {
 
     @FXML
     void passwordOnAction(ActionEvent event) {
-
+        txtUsername.getText();
+        txtPassword.getText();
     }
-
 }

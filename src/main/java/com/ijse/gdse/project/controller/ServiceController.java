@@ -2,16 +2,20 @@ package com.ijse.gdse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 
-import java.sql.SQLException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ServiceController {
+public class ServiceController implements Initializable {
 
     @FXML
     private Button btnDelete;
@@ -23,6 +27,9 @@ public class ServiceController {
     private Button btnUpdate;
 
     @FXML
+    private Circle cir;
+
+    @FXML
     private TableColumn<?, ?> colCost;
 
     @FXML
@@ -32,7 +39,7 @@ public class ServiceController {
     private TableColumn<?, ?> colReason;
 
     @FXML
-    private DatePicker dpDOS;
+    private ImageView imgProfile;
 
     @FXML
     private Label lblID;
@@ -45,6 +52,9 @@ public class ServiceController {
 
     @FXML
     private TextField txtCost;
+
+    @FXML
+    private TextField txtDOS;
 
     @FXML
     private TextField txtReason;
@@ -63,13 +73,13 @@ public class ServiceController {
     }
 
     @FXML
-    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        //refreshPage();
-    }
-
-    @FXML
     void updateOnAction(ActionEvent event) {
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        cir.setFill(new ImagePattern(imgProfile.getImage()));
     }
 
 }

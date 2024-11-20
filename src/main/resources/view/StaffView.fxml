@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,7 +12,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.StaffController">
    <children>
@@ -24,7 +27,7 @@
          </image>
       </ImageView>
       <Circle fx:id="cir" fill="WHITE" layoutX="818.0" layoutY="49.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-      <HBox alignment="CENTER_RIGHT" layoutX="545.0" layoutY="377.0" spacing="10.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="544.0" layoutY="334.0" spacing="10.0">
          <children>
             <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
                <font>
@@ -48,5 +51,41 @@
             </Button>
          </children>
       </HBox>
+      <Label layoutX="60.0" layoutY="35.0" text="Staff Management" textFill="#593f1e">
+         <font>
+            <Font name="Book Antiqua" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="131.0" text="Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="60.0" layoutY="168.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Label layoutX="60.0" layoutY="240.0" text="ID">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="354.0" layoutY="131.0" text="Role">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblID" layoutX="154.0" layoutY="131.0" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtID" layoutX="60.0" layoutY="280.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtRole" layoutX="354.0" layoutY="168.0" prefHeight="20.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TableView fx:id="tblStaff" layoutX="15.0" layoutY="390.0" onMouseClicked="#onClickTable" prefHeight="200.0" prefWidth="828.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="141.5999813079834" text="Staff ID" />
+          <TableColumn fx:id="colName" prefWidth="322.4000244140625" text="Name" />
+            <TableColumn fx:id="colRole" prefWidth="177.5999755859375" text="Role" />
+            <TableColumn fx:id="colPID" prefWidth="185.5999755859375" text="ID" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
