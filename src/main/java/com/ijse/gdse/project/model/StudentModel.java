@@ -6,6 +6,7 @@ import com.ijse.gdse.project.util.CrudUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentModel {
 
@@ -24,14 +25,14 @@ public class StudentModel {
     public boolean saveStudent(StudentDTO studentDTO) throws SQLException {
         return CrudUtil.execute("insert into student values(?,?,?,?,?,?,?,?,?,?)",
                 studentDTO.getStudentId(),
-                studentDTO.getName(),
-                studentDTO.getNIC(),
                 studentDTO.getDOB(),
+                studentDTO.getNIC(),
+                studentDTO.getName(),
                 studentDTO.getGender(),
                 studentDTO.getAddress(),
                 studentDTO.getAssists(),
-                studentDTO.getEmail(),
                 studentDTO.getAdvancePayment(),
+                studentDTO.getEmail(),
                 studentDTO.getVehicleId()
         );
     }
@@ -42,7 +43,7 @@ public class StudentModel {
         while (rst.next()) {
             StudentDTO studentDTO = new StudentDTO(
                     rst.getString(1),
-                    rst.getString(2),
+                    rst.getDate(2),
                     rst.getString(3),
                     rst.getString(4),
                     rst.getString(5),
@@ -92,7 +93,7 @@ public class StudentModel {
         if (rst.next()) {
             return new StudentDTO(
                     rst.getString(1),
-                    rst.getString(2),
+                    rst.getDate(2),
                     rst.getString(3),
                     rst.getString(4),
                     rst.getString(5),
@@ -104,5 +105,11 @@ public class StudentModel {
             );
         }
         return null;
+    }
+
+    public ArrayList<String> getAllGender() throws SQLException {
+//        ResultSet rst = CrudUtil.execute("select gender from student");
+        ArrayList<String> gender = new ArrayList<>(List.of("Male", "Female"));
+        return gender;
     }
 }

@@ -5,6 +5,7 @@ module com.ijse.gdse.project {
     requires java.sql;
     requires lombok;
     requires mysql.connector.j;
+    requires net.sf.jasperreports.core;
 
     opens com.ijse.gdse.project.dto.tm to javafx.base;
     opens com.ijse.gdse.project.controller to javafx.fxml;

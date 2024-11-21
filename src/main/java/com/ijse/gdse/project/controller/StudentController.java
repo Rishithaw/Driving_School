@@ -1,5 +1,6 @@
 package com.ijse.gdse.project.controller;
 
+import com.ijse.gdse.project.db.DBConnection;
 import com.ijse.gdse.project.dto.StudentDTO;
 import com.ijse.gdse.project.dto.tm.StudentTM;
 import com.ijse.gdse.project.model.StudentModel;
@@ -14,8 +15,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,6 +40,9 @@ public class StudentController implements Initializable {
 
     @FXML
     private Circle cir;
+
+    @FXML
+    private ComboBox<String> cmbGender;
 
     @FXML
     private TableColumn<StudentTM, String> colAddress;
@@ -65,6 +73,9 @@ public class StudentController implements Initializable {
 
     @FXML
     private TableColumn<StudentTM, String> colVehicle;
+
+    @FXML
+    private DatePicker dpDob;
 
     @FXML
     private ImageView imgProfile;
@@ -135,8 +146,10 @@ public class StudentController implements Initializable {
         String studentId = lblID.getText();
         String name = txtName.getText();
         String nic = txtNic.getText();
-        String dob = txtDob.getText();
-        String gender = txtGender.getText();
+        Date dob = Date.valueOf(dpDob.getValue());
+        //String dob = txtDob.getText();
+        String gender = cmbGender.getValue();
+        //String gender = txtGender.getText();
         String address = txtAddress.getText();
         String assist = txtAssist.getText();
         String email = txtEmail.getText();
@@ -170,14 +183,14 @@ public class StudentController implements Initializable {
         if (isValidName && isValidNic && isValidEmail) {
             StudentDTO studentDTO = new StudentDTO(
                     studentId,
-                    name,
-                    nic,
                     dob,
+                    nic,
+                    name,
                     gender,
                     address,
                     assist,
-                    email,
                     pay,
+                    email,
                     vehicle
             );
 
@@ -186,8 +199,10 @@ public class StudentController implements Initializable {
                 loadNextStudentId();
                 txtName.setText("");
                 txtNic.setText("");
-                txtDob.setText("");
-                txtGender.setText("");
+                dpDob.setValue(null);
+                //txtDob.setText("");
+                cmbGender.getSelectionModel().clearSelection();
+                //txtGender.setText("");
                 txtAddress.setText("");
                 txtAssist.setText("");
                 txtEmail.setText("");
@@ -226,8 +241,11 @@ public class StudentController implements Initializable {
             lblID.setText(studentTM.getStudentId());
             txtName.setText(studentTM.getName());
             txtNic.setText(studentTM.getNIC());
-            txtDob.setText(studentTM.getDOB());
-            txtGender.setText(studentTM.getGender());
+            Date date = studentTM.getDOB();
+            dpDob.setValue(date.toLocalDate());
+            //txtDob.setText(studentTM.getDOB());
+            cmbGender.getSelectionModel().select(studentTM.getGender());
+            //txtGender.setText(studentTM.getGender());
             txtAddress.setText(studentTM.getAddress());
             txtAssist.setText(studentTM.getAssists());
             txtEmail.setText(studentTM.getEmail());
@@ -242,12 +260,37 @@ public class StudentController implements Initializable {
     }
 
     @FXML
-    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void reportOnAction(ActionEvent event) {
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/reports/Student_Report.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    null,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "DB error...!").show();
+        }
+    }
+
+    @FXML
+    void resetOnAction(ActionEvent event) throws SQLException {
         refreshPage();
     }
 
     @FXML
-    void updateOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void updateOnAction(ActionEvent event) throws SQLException {
         String namePattern = "^[A-Za-z ]+$";
         String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";
         String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -256,8 +299,10 @@ public class StudentController implements Initializable {
         String studentId = lblID.getText();
         String name = txtName.getText();
         String nic = txtNic.getText();
-        String dob = txtDob.getText();
-        String gender = txtGender.getText();
+        Date dob = Date.valueOf(dpDob.getValue());
+        //String dob = txtDob.getText();
+        String gender = cmbGender.getValue();
+        //String gender = txtGender.getText();
         String address = txtAddress.getText();
         String assist = txtAssist.getText();
         String email = txtEmail.getText();
@@ -304,7 +349,6 @@ public class StudentController implements Initializable {
 
             boolean isUpdated = studentModel.updateStudent(studentDTO);
             if (isUpdated) {
-
                 refreshPage();
                 new Alert(Alert.AlertType.INFORMATION,"Successfully updated").show();
             } else {
@@ -315,9 +359,10 @@ public class StudentController implements Initializable {
 
     }
 
-    private void refreshPage() throws SQLException, ClassNotFoundException {
+    private void refreshPage() throws SQLException {
         loadNextStudentId();
         loadTableData();
+        loadGender();
         btnSave.setDisable(false);
 
         btnUpdate.setDisable(true);
@@ -325,8 +370,10 @@ public class StudentController implements Initializable {
 
         txtName.setText("");
         txtNic.setText("");
-        txtDob.setText("");
-        txtGender.setText("");
+        dpDob.setValue(null);
+        //txtDob.setText("");
+        cmbGender.getSelectionModel().clearSelection();
+        //txtGender.setText("");
         txtAddress.setText("");
         txtAssist.setText("");
         txtEmail.setText("");
@@ -357,5 +404,12 @@ public class StudentController implements Initializable {
     private void loadNextStudentId() throws SQLException {
         String nextCustomerId = studentModel.getNextStudentId();
         lblID.setText(nextCustomerId);
+    }
+
+    private void loadGender() throws SQLException {
+        ArrayList<String> gender = studentModel.getAllGender();
+        ObservableList<String> genders = FXCollections.observableArrayList();
+        genders.addAll(gender);
+        cmbGender.setItems(genders);
     }
 }

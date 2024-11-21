@@ -12,7 +12,7 @@ public class StaffModel {
         ResultSet rst = CrudUtil.execute("select staff_id from staff order by staff_id desc limit 1");
         if (rst.next()) {
             String lastId = rst.getString(1);
-            String substring = lastId.substring(1);
+            String substring = lastId.substring(2);
             int i = Integer.parseInt(substring);
             int newIndex = i+1;
             return String.format("St%03d", newIndex);

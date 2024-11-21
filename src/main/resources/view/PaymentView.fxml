@@ -13,6 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.PaymentController">
    <children>
@@ -71,13 +72,13 @@
          </font>
       </Label>
       <TextField fx:id="txtStudentName" layoutX="53.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="649.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="816.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="796.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pictures/Profile.jpg" />
          </image>
       </ImageView>
-      <Circle fx:id="cir" fill="WHITE" layoutX="828.0" layoutY="59.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="cir" fill="WHITE" layoutX="808.0" layoutY="39.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <TextField fx:id="txtDOP" layoutX="613.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TableView layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="830.0">
         <columns>
@@ -114,5 +115,15 @@
             </Button>
          </children>
       </HBox>
+      <Text layoutX="644.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishitha Wickramasinghe">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="740.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

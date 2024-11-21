@@ -65,16 +65,6 @@ public class MainLayoutController implements Initializable {
     }
 
     @FXML
-    public void dashBoardImgOnAction(MouseEvent mouseEvent) {
-        navigateTo("/view/DashBoardView.fxml");
-    }
-
-    @FXML
-    void dashBoardOnAction(ActionEvent event) {
-        navigateTo("/view/DashBoardView.fxml");
-    }
-
-    @FXML
     void lessonImgOnAction(MouseEvent event) {
         navigateTo("/view/LessonView.fxml");
     }

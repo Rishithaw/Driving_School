@@ -1,5 +1,7 @@
 package com.ijse.gdse.project.controller;
 
+import com.ijse.gdse.project.dto.SignUpDTO;
+import com.ijse.gdse.project.model.SignUpModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class SignUpPageController {
 
@@ -50,14 +53,13 @@ public class SignUpPageController {
     private TextField txtUsername;
 
     @FXML
-    void loginOnAction(ActionEvent event) throws IOException {
-        storeData();
+    void loginOnAction(ActionEvent event) {
         navigateTo("/view/LoginPageView.fxml");
     }
 
     @FXML
-    void signInOnAction(ActionEvent event) throws IOException {
-        navigateTo("/view/LoginPageView.fxml");
+    void signInOnAction(ActionEvent event) throws SQLException {
+        storeData();
     }
 
     private void navigateTo(String fxmlPath) {
@@ -72,6 +74,29 @@ public class SignUpPageController {
         }
     }
 
-    private void storeData() {
+    private void storeData() throws SQLException {
+
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String address = txtAddress.getText();
+        String name = txtName.getText();
+
+        if (txtUsername.getText() == "" && txtPassword.getText() == "" && txtAddress.getText() == "" && txtName.getText() == "") {
+            new Alert(Alert.AlertType.ERROR,"Please Enter All Your Details").show();
+        }else {
+
+            SignUpModel signUpModel = new SignUpModel();
+
+            SignUpDTO signUpDTO = new SignUpDTO(username, name, address,password);
+
+            boolean isSaved = signUpModel.saveSignIn(signUpDTO);
+
+            if (isSaved) {
+                new Alert(Alert.AlertType.INFORMATION,"Details Saved").show();
+                navigateTo("/view/LoginPageView.fxml");
+            } else {
+                new Alert(Alert.AlertType.ERROR,"Failed To Save Your Details").show();
+            }
+        }
     }
 }

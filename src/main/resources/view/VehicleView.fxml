@@ -12,6 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.VehicleController">
    <children>
@@ -68,7 +69,7 @@
             <TableColumn fx:id="colLessonFee" prefWidth="168.0" text="Lessson Fee" />
             <TableColumn fx:id="colAdmin" minWidth="0.0" prefWidth="145.59994506835938" text="Admin" />
             <TableColumn fx:id="colInstructor" minWidth="0.0" prefWidth="131.199951171875" text="Instructor" />
-            <TableColumn fx:id="colMechanic" prefWidth="146.39996337890625" text="Mechanic" />
+            <TableColumn fx:id="colMechanic" prefWidth="151.2000732421875" text="Mechanic" />
         </columns>
       </TableView>
       <HBox alignment="CENTER_RIGHT" layoutX="535.0" layoutY="367.0" spacing="10.0">
@@ -101,5 +102,15 @@
          </font>
       </Label>
       <TextField fx:id="txtAdmin" layoutX="605.0" layoutY="158.0" prefHeight="20.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Text layoutX="644.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishitha Wickramasinghe">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="740.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -27,6 +27,9 @@ public class SettingController implements Initializable {
     private TextField txtEmail;
 
     @FXML
+    private TextField txtID;
+
+    @FXML
     private TextField txtName;
 
     @FXML
@@ -34,17 +37,38 @@ public class SettingController implements Initializable {
 
     @FXML
     void cancelOnAction(ActionEvent event) {
-
+        txtID.clear();
+        txtName.clear();
+        txtEmail.clear();
+        txtUser.clear();
     }
 
     @FXML
     void changeEmail(ActionEvent event) {
+        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
+        String email = txtEmail.getText();
+
+        txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: #000000;");
+
+        boolean isValidEmail = email.matches(emailPattern);
+        if (!isValidEmail) {
+            txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: red;");
+        }
     }
 
     @FXML
     void changeNameOnAction(ActionEvent event) {
+        String namePattern = "^[A-Za-z ]+$";
 
+        String name = txtName.getText();
+
+        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #000000;");
+
+        boolean isValidName = name.matches(namePattern);
+        if (!isValidName) {
+            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
+        }
     }
 
     @FXML

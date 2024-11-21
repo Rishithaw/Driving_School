@@ -2,6 +2,8 @@ package com.ijse.gdse.project.dto.tm;
 
 import lombok.*;
 
+import java.sql.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -9,7 +11,7 @@ import lombok.*;
 @ToString
 public class StudentTM {
     private String studentId;
-    private String DOB;
+    private Date DOB;
     private String NIC;
     private String name;
     private String address;
