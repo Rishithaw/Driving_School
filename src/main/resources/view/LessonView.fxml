@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,6 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.LessonController">
     <children>
@@ -49,7 +51,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label fx:id="lblID" layoutX="184.0" layoutY="110.0" text="1">
+        <Label fx:id="lblLessonID" layoutX="184.0" layoutY="110.0" text="1">
             <font>
                 <Font size="18.0" />
             </font>
@@ -61,40 +63,56 @@
                 <Font size="20.0" />
             </font>
         </Label>
-      <TableView fx:id="tblLesson" layoutX="9.0" layoutY="347.0" onMouseClicked="#onClickTable" prefHeight="238.0" prefWidth="839.0">
+      <TableView fx:id="tblLesson" layoutX="9.0" layoutY="329.0" prefHeight="196.0" prefWidth="839.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="Lesson ID" />
-          <TableColumn fx:id="colLessonName" prefWidth="156.8000259399414" text="Lesson Name" />
-            <TableColumn fx:id="colStId" prefWidth="105.5999755859375" text="Student ID" />
-            <TableColumn fx:id="colStName" prefWidth="168.80001831054688" text="Student Name" />
-            <TableColumn fx:id="colDuration" prefWidth="160.800048828125" text="Duration" />
-            <TableColumn fx:id="colInstructor" prefWidth="169.59991455078125" text="Instructor" />
+          <TableColumn fx:id="colLessonName" prefWidth="259.2000503540039" text="Lesson Name" />
+            <TableColumn fx:id="colStId" prefWidth="133.5999755859375" text="Student ID" />
+            <TableColumn fx:id="colDuration" prefWidth="133.59994506835938" text="Duration" />
+            <TableColumn fx:id="colInstructor" prefWidth="111.20001220703125" text="Instructor ID" />
+            <TableColumn fx:id="colAction" prefWidth="125.5999755859375" text="Action" />
         </columns>
       </TableView>
-      <HBox alignment="CENTER_RIGHT" layoutX="543.0" layoutY="307.0" spacing="10.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="436.0" layoutY="285.0" prefHeight="30.0" prefWidth="413.0" spacing="10.0">
          <children>
             <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Save">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #fcf456;" text="Update">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20; -fx-background-color: #ff4141;" text="Delete">
+            <Button fx:id="btnAddToTable" mnemonicParsing="false" onAction="#AddToTableOnAction" prefHeight="30.0" prefWidth="110.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Add To Table">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </HBox>
-      <ComboBox fx:id="cmbStName" layoutX="50.0" layoutY="231.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <ComboBox fx:id="cmbStID" layoutX="50.0" layoutY="231.0" onAction="#LoadIdOnAction" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Text layoutX="643.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishitha Wickramasinghe">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="739.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblStName" layoutX="170.0" layoutY="205.0" text="Label">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpLessonDate" layoutX="610.0" layoutY="144.0" prefHeight="26.0" prefWidth="190.0" />
+      <Label layoutX="610.0" layoutY="95.0" text="Lesson Date">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnConfirmLesson" layoutX="705.0" layoutY="543.0" mnemonicParsing="false" onAction="#ConfirmLessonOnAction" prefHeight="30.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Confirm Lesson">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

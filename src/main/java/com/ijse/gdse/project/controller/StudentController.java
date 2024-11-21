@@ -22,7 +22,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -93,13 +92,7 @@ public class StudentController implements Initializable {
     private TextField txtAssist;
 
     @FXML
-    private TextField txtDob;
-
-    @FXML
     private TextField txtEmail;
-
-    @FXML
-    private TextField txtGender;
 
     @FXML
     private TextField txtName;
@@ -147,9 +140,7 @@ public class StudentController implements Initializable {
         String name = txtName.getText();
         String nic = txtNic.getText();
         Date dob = Date.valueOf(dpDob.getValue());
-        //String dob = txtDob.getText();
         String gender = cmbGender.getValue();
-        //String gender = txtGender.getText();
         String address = txtAddress.getText();
         String assist = txtAssist.getText();
         String email = txtEmail.getText();
@@ -200,9 +191,7 @@ public class StudentController implements Initializable {
                 txtName.setText("");
                 txtNic.setText("");
                 dpDob.setValue(null);
-                //txtDob.setText("");
                 cmbGender.getSelectionModel().clearSelection();
-                //txtGender.setText("");
                 txtAddress.setText("");
                 txtAssist.setText("");
                 txtEmail.setText("");
@@ -243,9 +232,7 @@ public class StudentController implements Initializable {
             txtNic.setText(studentTM.getNIC());
             Date date = studentTM.getDOB();
             dpDob.setValue(date.toLocalDate());
-            //txtDob.setText(studentTM.getDOB());
             cmbGender.getSelectionModel().select(studentTM.getGender());
-            //txtGender.setText(studentTM.getGender());
             txtAddress.setText(studentTM.getAddress());
             txtAssist.setText(studentTM.getAssists());
             txtEmail.setText(studentTM.getEmail());
@@ -300,9 +287,7 @@ public class StudentController implements Initializable {
         String name = txtName.getText();
         String nic = txtNic.getText();
         Date dob = Date.valueOf(dpDob.getValue());
-        //String dob = txtDob.getText();
         String gender = cmbGender.getValue();
-        //String gender = txtGender.getText();
         String address = txtAddress.getText();
         String assist = txtAssist.getText();
         String email = txtEmail.getText();
@@ -321,12 +306,10 @@ public class StudentController implements Initializable {
             System.out.println(txtName.getStyle());
             txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
             System.out.println("Invalid name.............");
-//            return;
         }
 
         if (!isValidNic) {
             txtNic.setStyle(txtNic.getStyle() + ";-fx-border-color: red;");
-//            return;
         }
 
         if (!isValidEmail) {
@@ -371,9 +354,7 @@ public class StudentController implements Initializable {
         txtName.setText("");
         txtNic.setText("");
         dpDob.setValue(null);
-        //txtDob.setText("");
         cmbGender.getSelectionModel().clearSelection();
-        //txtGender.setText("");
         txtAddress.setText("");
         txtAssist.setText("");
         txtEmail.setText("");
