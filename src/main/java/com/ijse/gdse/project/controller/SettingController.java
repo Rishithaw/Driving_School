@@ -1,8 +1,11 @@
 package com.ijse.gdse.project.controller;
 
+import com.ijse.gdse.project.dto.SignUpDTO;
+import com.ijse.gdse.project.model.SignUpModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -27,20 +30,16 @@ public class SettingController implements Initializable {
     private TextField txtEmail;
 
     @FXML
-    private TextField txtID;
-
-    @FXML
     private TextField txtName;
 
     @FXML
-    private TextField txtUser;
+    private TextField txtUsername;
 
     @FXML
     void cancelOnAction(ActionEvent event) {
-        txtID.clear();
         txtName.clear();
         txtEmail.clear();
-        txtUser.clear();
+        txtUsername.clear();
     }
 
     @FXML
@@ -60,7 +59,7 @@ public class SettingController implements Initializable {
     @FXML
     void changeNameOnAction(ActionEvent event) {
         String namePattern = "^[A-Za-z ]+$";
-
+        String username = txtUsername.getText();
         String name = txtName.getText();
 
         txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #000000;");
@@ -72,22 +71,21 @@ public class SettingController implements Initializable {
     }
 
     @FXML
-    void changePhotoOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void changeUserOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void confirmOnAction(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillFields();
         cir.setFill(new ImagePattern(imgProfile.getImage()));
+
+    }
+
+    private void fillFields() {
+        SignUpDTO signUpDTO = new SignUpDTO();
+        txtUsername.setText(signUpDTO.getUsername());
+        txtName.setText(signUpDTO.getName());
+        txtEmail.setText(signUpDTO.getUsername());
     }
 }

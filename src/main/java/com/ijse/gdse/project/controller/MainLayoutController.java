@@ -5,11 +5,13 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +19,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainLayoutController implements Initializable {
+    @FXML
+    private AnchorPane ancBase;
 
     @FXML
     private AnchorPane ancPane;
@@ -151,7 +155,16 @@ public class MainLayoutController implements Initializable {
         Optional<ButtonType> optionalButtonType = alert.showAndWait();
 
         if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
-            navigateTo("/view/LoginPageView.fxml");
+            try {
+                ancBase.getScene().getWindow().hide();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LoginPageView.fxml"));
+                AnchorPane loginPane = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(loginPane));
+                stage.show();
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Failed to load the login page!").show();
+            }
         }
     }
 

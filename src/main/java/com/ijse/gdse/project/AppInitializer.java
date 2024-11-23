@@ -28,20 +28,11 @@ public class AppInitializer extends Application {
 
         loadingTask.setOnSucceeded(event -> {
             Scene value = loadingTask.getValue();
-
             stage.setTitle("BetterDrive");
 //            Image image = new Image(getClass().getResourceAsStream("/images/app_icon.png"));
 //            stage.getIcons().add(image);
-
             stage.setScene(value);
         });
-
         new Thread(loadingTask).start();
-
-//        Parent load = FXMLLoader.load(getClass().getResource("/view/StartPageView.fxml"));
-//        Scene scene = new Scene(load);
-//        stage.setScene(scene);
-//        stage.setTitle("BetterDrive");
-//        stage.show();
     }
 }

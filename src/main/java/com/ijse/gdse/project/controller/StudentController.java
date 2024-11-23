@@ -32,6 +32,12 @@ public class StudentController implements Initializable {
     private Button btnDelete;
 
     @FXML
+    private Button btnReport;
+
+    @FXML
+    private Button btnReset;
+
+    @FXML
     private Button btnSave;
 
     @FXML
@@ -124,14 +130,14 @@ public class StudentController implements Initializable {
 
         try {
             refreshPage();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Fail to load customer id").show();
         }
     }
 
     @FXML
-    void SaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void SaveOnAction(ActionEvent event) throws SQLException {
         String namePattern = "^[A-Za-z ]+$";
         String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";
         String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -206,7 +212,7 @@ public class StudentController implements Initializable {
     }
 
     @FXML
-    void deleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void deleteOnAction(ActionEvent event) throws SQLException {
         String studentId = lblID.getText();
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);

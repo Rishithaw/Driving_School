@@ -203,7 +203,7 @@ public class StaffController implements Initializable {
 
         try {
             refreshPage();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Fail to load staff id").show();
         }

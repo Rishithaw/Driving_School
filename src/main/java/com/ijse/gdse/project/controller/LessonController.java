@@ -3,11 +3,9 @@ package com.ijse.gdse.project.controller;
 import com.ijse.gdse.project.dto.LessonDTO;
 import com.ijse.gdse.project.dto.ScheduleDetailsDTO;
 import com.ijse.gdse.project.dto.StudentDTO;
-import com.ijse.gdse.project.dto.tm.LessonTM;
 import com.ijse.gdse.project.dto.tm.ScheduleTM;
 import com.ijse.gdse.project.model.LessonModel;
 import com.ijse.gdse.project.model.StudentModel;
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
@@ -24,25 +21,9 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LessonController implements Initializable {
-
-    @FXML
-    private Button btnAddToTable;
-
-    @FXML
-    private Button btnConfirmLesson;
-
-    @FXML
-    private Button btnDelete;
-
-    @FXML
-    private Button btnSave;
-
-    @FXML
-    private Button btnUpdate;
 
     @FXML
     private Circle cir;
@@ -66,9 +47,6 @@ public class LessonController implements Initializable {
     private TableColumn<ScheduleTM ,String> colStId;
 
     @FXML
-    private TableColumn<ScheduleTM, String> colStName;
-
-    @FXML
     private TableColumn<?, ?> colAction;
 
     @FXML
@@ -79,9 +57,6 @@ public class LessonController implements Initializable {
 
     @FXML
     private Label lblLessonID;
-
-//    @FXML
-//    private Label lblStID;
 
     @FXML
     private Label lblStName;
@@ -98,12 +73,9 @@ public class LessonController implements Initializable {
     @FXML
     private TextField txtLessonName;
 
-    @FXML
-    private TextField txtStName;
-
+    private final ObservableList<ScheduleTM> scheduleTMS = FXCollections.observableArrayList();
     LessonModel lessonModel = new LessonModel();
     StudentModel studentModel = new StudentModel();
-    private final ObservableList<ScheduleTM> scheduleTMS = FXCollections.observableArrayList();
 
     @FXML
     void AddToTableOnAction(ActionEvent event) {
@@ -137,6 +109,12 @@ public class LessonController implements Initializable {
 
     @FXML
     void ConfirmLessonOnAction(ActionEvent event) throws SQLException {
+        String lessonId = lblLessonID.getText();
+        String lessonName = txtLessonName.getText();
+        String instructor = txtInstructor.getText();
+        String duration = txtDuration.getText();
+        Date lessonDate = Date.valueOf(dpLessonDate.getValue());
+
         if (tblLesson.getItems().isEmpty()) {
             new Alert(Alert.AlertType.ERROR,"Please select a lesson").show();
         }
@@ -144,14 +122,7 @@ public class LessonController implements Initializable {
             new Alert(Alert.AlertType.ERROR,"Please select a student").show();
         }
 
-        String lessonId = lblLessonID.getText();
-        String lessonName = txtLessonName.getText();
-        String instructor = txtInstructor.getText();
-        String duration = txtDuration.getText();
-        Date lessonDate = Date.valueOf(dpLessonDate.getValue());
-
         ArrayList<ScheduleDetailsDTO> scheduleDetailsDTOS = new ArrayList<>();
-
         for (ScheduleTM scheduleTM : scheduleTMS) {
             ScheduleDetailsDTO scheduleDetailsDTO = new ScheduleDetailsDTO(
                     lessonId,
@@ -188,7 +159,7 @@ public class LessonController implements Initializable {
     }
 
     @FXML
-    void resetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void resetOnAction(ActionEvent event) throws SQLException {
         refreshPage();
     }
 
@@ -198,7 +169,7 @@ public class LessonController implements Initializable {
         setCellValue();
         try {
             refreshPage();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Fail to load Lesson id").show();
         }
@@ -211,12 +182,10 @@ public class LessonController implements Initializable {
         colDuration.setCellValueFactory(new PropertyValueFactory<>("timePeriod"));
         colInstructor.setCellValueFactory(new PropertyValueFactory<>("instructorId"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("removeButton"));
-
         tblLesson.setItems(scheduleTMS);
     }
 
     private void refreshPage() throws SQLException {
-
         lblLessonID.setText(lessonModel.getNextLessonId());
         loadNextLessonId();
         loadStudentID();
@@ -225,9 +194,7 @@ public class LessonController implements Initializable {
         txtLessonName.setText("");
         txtDuration.setText("");
         cmbStID.getSelectionModel().clearSelection();
-
         scheduleTMS.clear();
-
         tblLesson.refresh();
     }
 

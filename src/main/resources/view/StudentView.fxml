@@ -136,8 +136,8 @@
          </font>
       </Label>
       <TextField fx:id="txtVehicleID" layoutX="641.0" layoutY="294.0" prefHeight="20.0" prefWidth="190.0" promptText="Enter Vehicle ID" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <DatePicker fx:id="dpDob" layoutX="334.0" layoutY="120.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none;" />
-      <ComboBox fx:id="cmbGender" layoutX="640.0" layoutY="133.0" prefHeight="26.0" prefWidth="190.0" />
+      <DatePicker fx:id="dpDob" layoutX="334.0" layoutY="119.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <ComboBox fx:id="cmbGender" layoutX="640.0" layoutY="119.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <Text layoutX="644.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rishitha Wickramasinghe">
          <font>
             <Font size="13.0" />

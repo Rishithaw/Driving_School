@@ -75,28 +75,40 @@ public class SignUpPageController {
     }
 
     private void storeData() throws SQLException {
+        String namePattern = "^[A-Za-z ]+$";
 
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         String address = txtAddress.getText();
         String name = txtName.getText();
 
-        if (txtUsername.getText() == "" && txtPassword.getText() == "" && txtAddress.getText() == "" && txtName.getText() == "") {
-            new Alert(Alert.AlertType.ERROR,"Please Enter All Your Details").show();
-        }else {
+        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #none;");
 
-            SignUpModel signUpModel = new SignUpModel();
+        boolean isValidName = name.matches(namePattern);
 
-            SignUpDTO signUpDTO = new SignUpDTO(username, name, address,password);
+        if (!isValidName) {
+            System.out.println(txtName.getStyle());
+            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
+            System.out.println("Invalid name.............");
+        }
 
-            boolean isSaved = signUpModel.saveSignIn(signUpDTO);
+        if (isValidName) {
+            if (txtUsername.getText() == "" && txtPassword.getText() == "" && txtAddress.getText() == "" && txtName.getText() == "") {
+                new Alert(Alert.AlertType.ERROR,"Please Enter All Your Details").show();
+            }else {
+                SignUpModel signUpModel = new SignUpModel();
+                SignUpDTO signUpDTO = new SignUpDTO(username, name, address,password);
+                boolean isSaved = signUpModel.saveSignIn(signUpDTO);
 
-            if (isSaved) {
-                new Alert(Alert.AlertType.INFORMATION,"Details Saved").show();
-                navigateTo("/view/LoginPageView.fxml");
-            } else {
-                new Alert(Alert.AlertType.ERROR,"Failed To Save Your Details").show();
+                if (isSaved) {
+                    new Alert(Alert.AlertType.INFORMATION,"Details Saved").show();
+                    navigateTo("/view/LoginPageView.fxml");
+                } else {
+                    new Alert(Alert.AlertType.ERROR,"Failed To Save Your Details").show();
+                }
             }
         }
+
+
     }
 }

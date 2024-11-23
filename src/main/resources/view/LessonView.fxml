@@ -73,14 +73,14 @@
             <TableColumn fx:id="colAction" prefWidth="125.5999755859375" text="Action" />
         </columns>
       </TableView>
-      <HBox alignment="CENTER_RIGHT" layoutX="436.0" layoutY="285.0" prefHeight="30.0" prefWidth="413.0" spacing="10.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="660.0" layoutY="285.0" prefHeight="30.0" prefWidth="190.0" spacing="10.0">
          <children>
             <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnAddToTable" mnemonicParsing="false" onAction="#AddToTableOnAction" prefHeight="30.0" prefWidth="110.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Add To Table">
+            <Button mnemonicParsing="false" onAction="#AddToTableOnAction" prefHeight="30.0" prefWidth="110.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Add To Table">
                <font>
                   <Font size="14.0" />
                </font>
@@ -109,7 +109,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnConfirmLesson" layoutX="705.0" layoutY="543.0" mnemonicParsing="false" onAction="#ConfirmLessonOnAction" prefHeight="30.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Confirm Lesson">
+      <Button layoutX="705.0" layoutY="543.0" mnemonicParsing="false" onAction="#ConfirmLessonOnAction" prefHeight="30.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: #5be76d;" text="Confirm Lesson">
          <font>
             <Font size="14.0" />
          </font>

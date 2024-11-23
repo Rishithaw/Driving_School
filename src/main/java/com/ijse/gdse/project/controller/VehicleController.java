@@ -202,7 +202,7 @@ public class VehicleController implements Initializable {
 
         try {
             refreshPage();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Fail to load customer id").show();
         }

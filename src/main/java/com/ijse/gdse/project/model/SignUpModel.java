@@ -14,4 +14,12 @@ public class SignUpModel {
                 signUpDTO.getPassword()
         );
     }
+
+    public boolean updateName(SignUpDTO signUpDTO) throws SQLException {
+        return CrudUtil.execute(
+                "update student set name=? where username=?",
+                signUpDTO.getName(),
+                signUpDTO.getUsername()
+        );
+    }
 }

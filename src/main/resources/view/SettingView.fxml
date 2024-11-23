@@ -27,13 +27,8 @@
             <Font name="Book Antiqua" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="39.0" layoutY="363.0" prefHeight="31.0" prefWidth="304.0" promptText="Name" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Button layoutX="640.0" layoutY="364.0" mnemonicParsing="false" onAction="#changeNameOnAction" prefHeight="31.0" prefWidth="126.0" text="Change">
-         <font>
-            <Font name="Book Antiqua" size="12.0" />
-         </font></Button>
-      <TextField fx:id="txtUser" layoutX="41.0" layoutY="428.0" prefHeight="31.0" prefWidth="304.0" promptText="Username" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Button layoutX="642.0" layoutY="429.0" mnemonicParsing="false" onAction="#changeUserOnAction" prefHeight="31.0" prefWidth="126.0" text="Change">
+      <TextField fx:id="txtName" layoutX="41.0" layoutY="417.0" prefHeight="31.0" prefWidth="304.0" promptText="Name" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <Button layoutX="642.0" layoutY="418.0" mnemonicParsing="false" onAction="#changeNameOnAction" prefHeight="31.0" prefWidth="126.0" text="Change">
          <font>
             <Font name="Book Antiqua" size="12.0" />
          </font></Button>
@@ -44,15 +39,11 @@
          </font></Button>
       <Button layoutX="653.0" layoutY="544.0" mnemonicParsing="false" onAction="#confirmOnAction" prefHeight="31.0" prefWidth="78.0" text="Confirm" />
       <Button layoutX="756.0" layoutY="544.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="78.0" text="Cancel" />
-      <Button layoutX="39.0" layoutY="219.0" mnemonicParsing="false" onAction="#changePhotoOnAction" prefHeight="31.0" prefWidth="111.0" text="Change Photo">
-         <font>
-            <Font name="Book Antiqua" size="12.0" />
-         </font></Button>
       <Label layoutX="85.0" layoutY="22.0" text="Settings" textFill="#593f1e">
          <font>
             <Font name="Book Antiqua" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="txtID" layoutX="39.0" layoutY="289.0" prefHeight="31.0" prefWidth="126.0" promptText="Enter Your ID" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtUsername" layoutX="39.0" layoutY="289.0" prefHeight="31.0" prefWidth="274.0" promptText="Enter Your Username" style="-fx-background-color: #ebebeb70; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>

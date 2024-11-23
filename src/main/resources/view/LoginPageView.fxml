@@ -27,7 +27,7 @@
             <Font name="Pristina" size="20.0" />
          </font>
       </Text>
-      <ImageView fx:id="imgDriver" fitHeight="40.0" fitWidth="40.0" layoutX="171.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="171.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-driver-100.png" />
          </image>
@@ -38,13 +38,13 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="txtUsername" layoutX="296.0" layoutY="245.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: F2380F;" />
-      <ImageView fx:id="imgUsername" fitHeight="30.0" fitWidth="30.0" layoutX="300.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtUsername" layoutX="296.0" layoutY="245.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: #ffe403;" />
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="300.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-username-64.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgPassword" fitHeight="30.0" fitWidth="30.0" layoutX="300.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="300.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/icons8-password-32.png" />
          </image>
@@ -59,11 +59,6 @@
             <Font name="Book Antiqua" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="btnPassword" layoutX="416.0" layoutY="302.0" mnemonicParsing="false" onAction="#passwordOnAction" style="-fx-background-color: none;" text="Forgot Password?" textFill="#593f1e">
-         <font>
-            <Font name="Book Antiqua" size="12.0" />
-         </font>
-      </Button>
-      <PasswordField fx:id="txtPassword" layoutX="296.0" layoutY="330.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: F2380F;" />
+      <PasswordField fx:id="txtPassword" layoutX="296.0" layoutY="330.0" opacity="0.45" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: #ffe403;" />
    </children>
 </AnchorPane>

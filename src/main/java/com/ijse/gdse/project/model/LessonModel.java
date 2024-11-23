@@ -48,6 +48,5 @@ public class LessonModel {
         } finally {
             connection.setAutoCommit(true);
         }
-
     }
 }

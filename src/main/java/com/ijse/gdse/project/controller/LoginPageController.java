@@ -21,21 +21,6 @@ public class LoginPageController {
     private AnchorPane anc;
 
     @FXML
-    private Button btnLogin;
-
-    @FXML
-    private Button btnPassword;
-
-    @FXML
-    private ImageView imgDriver;
-
-    @FXML
-    private ImageView imgPassword;
-
-    @FXML
-    private ImageView imgUsername;
-
-    @FXML
     private TextField txtPassword;
 
     @FXML
@@ -44,12 +29,6 @@ public class LoginPageController {
     @FXML
     void loginOnAction(ActionEvent event) throws IOException, SQLException {
         checkCredentials();
-
-    }
-
-    @FXML
-    void passwordOnAction(ActionEvent event) {
-
     }
 
     private void checkCredentials() throws SQLException, IOException {
@@ -71,24 +50,5 @@ public class LoginPageController {
                 }
             }
         }
-
-//if (txtUsername.getText() == "" && txtPassword.getText() == "" && txtAddress.getText() == "" && txtName.getText() == "") {
-//            new Alert(Alert.AlertType.ERROR,"Please Enter All Your Details").show();
-//        }else {
-//            SignUpModel signUpModel = new SignUpModel();
-//
-//            SignUpDTO signUpDTO = new SignUpDTO(username, name, address,password);
-//
-//            boolean isSaved = signUpModel.saveSignIn(signUpDTO);
-//
-//            if (isSaved) {
-//                new Alert(Alert.AlertType.INFORMATION,"Details Saved").show();
-//                navigateTo("/view/LoginPageView.fxml");
-//            } else {
-//                new Alert(Alert.AlertType.ERROR,"Failed To Save Your Details").show();
-//            }
-//        }
-
-
     }
 }
