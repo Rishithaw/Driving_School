@@ -8,16 +8,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -27,6 +30,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
+
+    @FXML
+    private AnchorPane ancPane;
 
     @FXML
     private Button btnDelete;
@@ -87,6 +93,15 @@ public class StudentController implements Initializable {
 
     @FXML
     private Label lblID;
+
+    @FXML
+    private Label lblInvalidEmail;
+
+    @FXML
+    private Label lblInvalidName;
+
+    @FXML
+    private Label lblInvalidNic;
 
     @FXML
     private TableView<StudentTM> tblStudent;
@@ -162,19 +177,18 @@ public class StudentController implements Initializable {
         boolean isValidEmail = email.matches(emailPattern);
 
         if (!isValidName) {
-            System.out.println(txtName.getStyle());
             txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
-            System.out.println("Invalid name.............");
-//            return;
+            lblInvalidName.setText("Please Enter A Valid Name");
         }
 
         if (!isValidNic) {
             txtNic.setStyle(txtNic.getStyle() + ";-fx-border-color: red;");
-//            return;
+            lblInvalidNic.setText("Please Enter A Valid NIC");
         }
 
         if (!isValidEmail) {
             txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: red;");
+            lblInvalidEmail.setText("Please Enter A Valid Email");
         }
 
         if (isValidName && isValidNic && isValidEmail) {
@@ -283,6 +297,15 @@ public class StudentController implements Initializable {
     }
 
     @FXML
+    void settingOnAction(MouseEvent event) throws IOException {
+        ancPane.getChildren().clear();
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/SettingView.fxml"));
+        load.prefWidthProperty().bind(ancPane.widthProperty());
+        load.prefHeightProperty().bind(ancPane.heightProperty());
+        ancPane.getChildren().add(load);
+    }
+
+    @FXML
     void updateOnAction(ActionEvent event) throws SQLException {
         String namePattern = "^[A-Za-z ]+$";
         String nicPattern = "^[0-9]{9}[vVxX]||[0-9]{12}$";
@@ -366,6 +389,9 @@ public class StudentController implements Initializable {
         txtEmail.setText("");
         txtPay.setText("");
         txtVehicleID.setText("");
+        lblInvalidName.setText("");
+        lblInvalidNic.setText("");
+        lblInvalidEmail.setText("");
     }
 
     private void loadTableData() throws SQLException {

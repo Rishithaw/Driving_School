@@ -24,9 +24,6 @@ public class SettingController implements Initializable {
     private ImageView imgProfile;
 
     @FXML
-    private Label lblName;
-
-    @FXML
     private TextField txtEmail;
 
     @FXML
@@ -40,34 +37,6 @@ public class SettingController implements Initializable {
         txtName.clear();
         txtEmail.clear();
         txtUsername.clear();
-    }
-
-    @FXML
-    void changeEmail(ActionEvent event) {
-        String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-
-        String email = txtEmail.getText();
-
-        txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: #000000;");
-
-        boolean isValidEmail = email.matches(emailPattern);
-        if (!isValidEmail) {
-            txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: red;");
-        }
-    }
-
-    @FXML
-    void changeNameOnAction(ActionEvent event) {
-        String namePattern = "^[A-Za-z ]+$";
-        String username = txtUsername.getText();
-        String name = txtName.getText();
-
-        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #000000;");
-
-        boolean isValidName = name.matches(namePattern);
-        if (!isValidName) {
-            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
-        }
     }
 
     @FXML

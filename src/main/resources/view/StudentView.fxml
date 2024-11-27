@@ -16,14 +16,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.StudentController">
+<AnchorPane fx:id="ancPane" prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.StudentController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="858.0" pickOnBounds="true">
          <image>
             <Image url="@../images/pictures/Pane.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" onMouseClicked="#settingOnAction" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
       <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="796.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pictures/Profile.jpg" />
@@ -130,7 +130,7 @@
          </font>
       </Label>
       <TextField fx:id="txtNic" layoutX="30.0" layoutY="293.0" prefHeight="26.0" prefWidth="190.0" promptText="Enter NIC" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="633.0" layoutY="271.0" text="Vehicle ID">
+      <Label layoutX="641.0" layoutY="271.0" text="Vehicle ID">
          <font>
             <Font size="20.0" />
          </font>
@@ -148,5 +148,8 @@
             <Font size="13.0" />
          </font>
       </Text>
+      <Label fx:id="lblInvalidName" layoutX="33.0" layoutY="145.0" textFill="RED" />
+      <Label fx:id="lblInvalidNic" layoutX="33.0" layoutY="321.0" textFill="RED" />
+      <Label fx:id="lblInvalidEmail" layoutX="644.0" layoutY="237.0" textFill="RED" />
    </children>
 </AnchorPane>

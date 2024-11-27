@@ -21,27 +21,6 @@ public class SignUpPageController {
     private AnchorPane ancPane;
 
     @FXML
-    private Button btnLogin;
-
-    @FXML
-    private Button btnSignIn;
-
-    @FXML
-    private ImageView imgAddress;
-
-    @FXML
-    private ImageView imgDriver;
-
-    @FXML
-    private ImageView imgName;
-
-    @FXML
-    private ImageView imgPassword;
-
-    @FXML
-    private ImageView imgUsername;
-
-    @FXML
     private TextField txtAddress;
 
     @FXML

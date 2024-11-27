@@ -21,7 +21,7 @@
             <Image url="@../images/pictures/Pane.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="42.0" layoutX="629.0" layoutY="18.0" onMouseClicked="#settingOnAction" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
       <ImageView fx:id="imgProfile" fitHeight="20.0" fitWidth="30.0" layoutX="796.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pictures/Profile.jpg" />
@@ -39,7 +39,7 @@
          </font>
       </Label>
       <TextField fx:id="txtVehicle" layoutX="50.0" layoutY="158.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="344.0" layoutY="230.0" text="Mechanic ID">
+      <Label fx:id="ancPane" layoutX="344.0" layoutY="230.0" text="Mechanic ID">
          <font>
             <Font size="20.0" />
          </font>

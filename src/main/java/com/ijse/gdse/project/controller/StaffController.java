@@ -7,14 +7,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,6 +25,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
+
+    @FXML
+    private AnchorPane ancPane;
 
     @FXML
     private Button btnDelete;
@@ -149,6 +155,15 @@ public class StaffController implements Initializable {
     @FXML
     void resetOnAction(ActionEvent event) throws SQLException {
         refreshPage();
+    }
+
+    @FXML
+    void settingOnAction(MouseEvent event) throws IOException {
+        ancPane.getChildren().clear();
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/SettingView.fxml"));
+        load.prefWidthProperty().bind(ancPane.widthProperty());
+        load.prefHeightProperty().bind(ancPane.heightProperty());
+        ancPane.getChildren().add(load);
     }
 
     @FXML
