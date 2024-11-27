@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class SignUpPageController {
 
@@ -74,41 +75,73 @@ public class SignUpPageController {
         }
     }
 
-    private void storeData() throws SQLException {
-        String namePattern = "^[A-Za-z ]+$";
+//    private void storeData() throws SQLException {
+//        String namePattern = "^[A-Za-z ]+$";
+//
+//        String username = txtUsername.getText();
+//        String password = txtPassword.getText();
+//        String address = txtAddress.getText();
+//        String name = txtName.getText();
+//
+//        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #none;");
+//
+//        boolean isValidName = name.matches(namePattern);
+//
+//        if (!isValidName) {
+//            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
+//        }
+//
+//        if (isValidName) {
+//            if (Objects.equals(txtUsername.getText(), "") && Objects.equals(txtPassword.getText(), "") && Objects.equals(txtAddress.getText(), "") && Objects.equals(txtName.getText(), "")) {
+//                new Alert(Alert.AlertType.ERROR,"Please Enter All Your Details").show(); // Line 96
+//            }else {
+//                SignUpModel signUpModel = new SignUpModel();
+//                SignUpDTO signUpDTO = new SignUpDTO(username, name, address,password);
+//                boolean isSaved = signUpModel.saveSignIn(signUpDTO);
+//
+//                if (isSaved) {
+//                    new Alert(Alert.AlertType.INFORMATION,"Details Saved").show();
+//                    navigateTo("/view/LoginPageView.fxml");
+//                } else {
+//                    new Alert(Alert.AlertType.ERROR,"Failed To Save Your Details").show();
+//                }
+//            }
+//        }
+//    }
+private void storeData() throws SQLException {
+    String namePattern = "^[A-Za-z ]+$";
 
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String address = txtAddress.getText();
-        String name = txtName.getText();
+    String username = txtUsername.getText();
+    String password = txtPassword.getText();
+    String address = txtAddress.getText();
+    String name = txtName.getText();
 
-        txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #none;");
-
-        boolean isValidName = name.matches(namePattern);
-
-        if (!isValidName) {
-            System.out.println(txtName.getStyle());
-            txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
-            System.out.println("Invalid name.............");
-        }
-
-        if (isValidName) {
-            if (txtUsername.getText() == "" && txtPassword.getText() == "" && txtAddress.getText() == "" && txtName.getText() == "") {
-                new Alert(Alert.AlertType.ERROR,"Please Enter All Your Details").show();
-            }else {
-                SignUpModel signUpModel = new SignUpModel();
-                SignUpDTO signUpDTO = new SignUpDTO(username, name, address,password);
-                boolean isSaved = signUpModel.saveSignIn(signUpDTO);
-
-                if (isSaved) {
-                    new Alert(Alert.AlertType.INFORMATION,"Details Saved").show();
-                    navigateTo("/view/LoginPageView.fxml");
-                } else {
-                    new Alert(Alert.AlertType.ERROR,"Failed To Save Your Details").show();
-                }
-            }
-        }
-
-
+    // Check if all fields are empty
+    if (Objects.equals(username, "") && Objects.equals(password, "") && Objects.equals(address, "") && Objects.equals(name, "")) {
+        new Alert(Alert.AlertType.ERROR, "Please Enter All Your Details").show();
+        return; // Exit early
     }
+
+    // Validate name separately
+    boolean isValidName = name.matches(namePattern);
+    if (!isValidName) {
+        txtName.setStyle(txtName.getStyle() + ";-fx-border-color: red;");
+        return; // Exit early if name is invalid
+    }
+
+    txtName.setStyle(txtName.getStyle() + ";-fx-border-color:  #none;");
+
+    // Proceed with saving data
+    SignUpModel signUpModel = new SignUpModel();
+    SignUpDTO signUpDTO = new SignUpDTO(username, name, address, password);
+    boolean isSaved = signUpModel.saveSignIn(signUpDTO);
+
+    if (isSaved) {
+        new Alert(Alert.AlertType.INFORMATION, "Details Saved").show();
+        navigateTo("/view/LoginPageView.fxml");
+    } else {
+        new Alert(Alert.AlertType.ERROR, "Failed To Save Your Details").show();
+    }
+}
+
 }
