@@ -43,7 +43,6 @@ public class LoginPageController {
 
             for (SignUpDTO signUpDTO : signUpDTOS) {
                 if (signUpDTO.getUsername().equals(userName) && signUpDTO.getPassword().equals(password)) {
-                    System.out.println("Login Success");
                     anc.getChildren().clear();
                     AnchorPane load = FXMLLoader.load(getClass().getResource("/view/MainLayout.fxml"));
                     anc.getChildren().add(load);
