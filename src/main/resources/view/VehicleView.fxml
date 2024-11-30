@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.VehicleController">
+<AnchorPane fx:id="ancPane" prefHeight="600.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.project.controller.VehicleController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="858.0" pickOnBounds="true">
          <image>
@@ -39,7 +39,7 @@
          </font>
       </Label>
       <TextField fx:id="txtVehicle" layoutX="50.0" layoutY="158.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label fx:id="ancPane" layoutX="344.0" layoutY="230.0" text="Mechanic ID">
+      <Label layoutX="344.0" layoutY="230.0" text="Mechanic ID">
          <font>
             <Font size="20.0" />
          </font>

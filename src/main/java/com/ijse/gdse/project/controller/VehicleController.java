@@ -3,7 +3,6 @@ package com.ijse.gdse.project.controller;
 import com.ijse.gdse.project.dto.VehicleDTO;
 import com.ijse.gdse.project.dto.tm.VehicleTM;
 import com.ijse.gdse.project.model.VehicleModel;
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
