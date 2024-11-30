@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -17,6 +19,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -263,6 +268,41 @@ public class StudentController implements Initializable {
 
             btnDelete.setDisable(false);
             btnUpdate.setDisable(false);
+        }
+    }
+
+    @FXML
+    void openMailSendOnAction(ActionEvent event) {
+        StudentTM selectedItem = tblStudent.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            new Alert(Alert.AlertType.ERROR, "Please select Customer...!").show();
+            return;
+        }
+
+        try {
+            // Load the mail dialog from FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SendMailView.fxml"));
+            Parent load = loader.load();
+
+            SendMailController sendMailController = loader.getController();
+
+            String email = selectedItem.getEmail();
+            sendMailController.setCustomerEmail(email);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(load));
+            stage.setTitle("Send email");
+
+            // Set window as modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            Window underWindow = btnUpdate.getScene().getWindow();
+            stage.initOwner(underWindow);
+
+            stage.showAndWait();
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load ui..!");
+            e.printStackTrace();
         }
     }
 
