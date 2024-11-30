@@ -86,7 +86,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAssist" layoutX="334.0" layoutY="209.0" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TextField fx:id="txtPay" layoutX="334.0" layoutY="293.0" prefHeight="28.0" prefWidth="189.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TextField fx:id="txtAddress" layoutX="30.0" layoutY="209.0" prefHeight="20.0" prefWidth="190.0" promptText="Enter Address" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <HBox alignment="CENTER_RIGHT" layoutX="283.0" layoutY="349.0" spacing="10.0">
@@ -99,12 +98,12 @@
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnReport" mnemonicParsing="false" onAction="#reportOnAction" prefHeight="30.0" prefWidth="139.0" style="-fx-background-radius: 20; -fx-background-color: #fa7a0a;" text="Generate Report">
+            <Button mnemonicParsing="false" onAction="#reportOnAction" prefHeight="30.0" prefWidth="139.0" style="-fx-background-radius: 20; -fx-background-color: #fa7a0a;" text="Generate Report">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
+            <Button mnemonicParsing="false" onAction="#resetOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #00b2ff;" text="Reset">
                <font>
                   <Font size="14.0" />
                </font>
@@ -160,5 +159,6 @@
       <Label fx:id="lblInvalidName" layoutX="33.0" layoutY="145.0" textFill="RED" />
       <Label fx:id="lblInvalidNic" layoutX="33.0" layoutY="321.0" textFill="RED" />
       <Label fx:id="lblInvalidEmail" layoutX="644.0" layoutY="237.0" textFill="RED" />
+      <ComboBox fx:id="cmbAssists" layoutX="334.0" layoutY="209.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
    </children>
 </AnchorPane>

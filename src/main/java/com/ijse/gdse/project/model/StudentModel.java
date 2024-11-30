@@ -107,9 +107,13 @@ public class StudentModel {
         return null;
     }
 
-    public ArrayList<String> getAllGender() throws SQLException {
-//        ResultSet rst = CrudUtil.execute("select gender from student");
+    public ArrayList<String> getAllGender() {
         ArrayList<String> gender = new ArrayList<>(List.of("Male", "Female"));
         return gender;
+    }
+
+    public ArrayList<String> getAllAssists() {
+        ArrayList<String> assists = new ArrayList<>(List.of("None", "Glasses", "Contacts", "Hearing Aids"));
+        return assists;
     }
 }

@@ -43,12 +43,6 @@ public class StudentController implements Initializable {
     private Button btnDelete;
 
     @FXML
-    private Button btnReport;
-
-    @FXML
-    private Button btnReset;
-
-    @FXML
     private Button btnSave;
 
     @FXML
@@ -59,6 +53,9 @@ public class StudentController implements Initializable {
 
     @FXML
     private ComboBox<String> cmbGender;
+
+    @FXML
+    private ComboBox<String> cmbAssists;
 
     @FXML
     private TableColumn<StudentTM, String> colAddress;
@@ -115,9 +112,6 @@ public class StudentController implements Initializable {
     private TextField txtAddress;
 
     @FXML
-    private TextField txtAssist;
-
-    @FXML
     private TextField txtEmail;
 
     @FXML
@@ -168,7 +162,7 @@ public class StudentController implements Initializable {
         Date dob = Date.valueOf(dpDob.getValue());
         String gender = cmbGender.getValue();
         String address = txtAddress.getText();
-        String assist = txtAssist.getText();
+        String assist = cmbAssists.getValue();
         String email = txtEmail.getText();
         String pay = txtPay.getText();
         String vehicle  =txtVehicleID.getText();
@@ -218,7 +212,7 @@ public class StudentController implements Initializable {
                 dpDob.setValue(null);
                 cmbGender.getSelectionModel().clearSelection();
                 txtAddress.setText("");
-                txtAssist.setText("");
+                cmbAssists.getSelectionModel().clearSelection();
                 txtEmail.setText("");
                 txtPay.setText("");
                 txtVehicleID.setText("");
@@ -259,7 +253,7 @@ public class StudentController implements Initializable {
             dpDob.setValue(date.toLocalDate());
             cmbGender.getSelectionModel().select(studentTM.getGender());
             txtAddress.setText(studentTM.getAddress());
-            txtAssist.setText(studentTM.getAssists());
+            cmbAssists.getSelectionModel().select(studentTM.getAssists());
             txtEmail.setText(studentTM.getEmail());
             txtPay.setText(studentTM.getAdvancePayment());
             txtVehicleID.setText(studentTM.getVehicleId());
@@ -280,7 +274,6 @@ public class StudentController implements Initializable {
         }
 
         try {
-            // Load the mail dialog from FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SendMailView.fxml"));
             Parent load = loader.load();
 
@@ -292,8 +285,6 @@ public class StudentController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(load));
             stage.setTitle("Send email");
-
-            // Set window as modal
             stage.initModality(Modality.APPLICATION_MODAL);
 
             Window underWindow = btnUpdate.getScene().getWindow();
@@ -325,7 +316,6 @@ public class StudentController implements Initializable {
             JasperViewer.viewReport(jasperPrint, false);
         } catch (JRException e) {
             new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
-//           e.printStackTrace();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "DB error...!").show();
         }
@@ -358,7 +348,7 @@ public class StudentController implements Initializable {
         Date dob = Date.valueOf(dpDob.getValue());
         String gender = cmbGender.getValue();
         String address = txtAddress.getText();
-        String assist = txtAssist.getText();
+        String assist = cmbAssists.getValue();
         String email = txtEmail.getText();
         String pay = txtPay.getText();
         String vehicle = txtVehicleID.getText();
@@ -415,6 +405,7 @@ public class StudentController implements Initializable {
         loadNextStudentId();
         loadTableData();
         loadGender();
+        loadAssists();
         btnSave.setDisable(false);
 
         btnUpdate.setDisable(true);
@@ -425,7 +416,7 @@ public class StudentController implements Initializable {
         dpDob.setValue(null);
         cmbGender.getSelectionModel().clearSelection();
         txtAddress.setText("");
-        txtAssist.setText("");
+        cmbAssists.getSelectionModel().clearSelection();
         txtEmail.setText("");
         txtPay.setText("");
         txtVehicleID.setText("");
@@ -459,10 +450,17 @@ public class StudentController implements Initializable {
         lblID.setText(nextCustomerId);
     }
 
-    private void loadGender() throws SQLException {
+    private void loadGender() {
         ArrayList<String> gender = studentModel.getAllGender();
         ObservableList<String> genders = FXCollections.observableArrayList();
         genders.addAll(gender);
         cmbGender.setItems(genders);
+    }
+
+    private void loadAssists(){
+        ArrayList<String> gender = studentModel.getAllAssists();
+        ObservableList<String> genders = FXCollections.observableArrayList();
+        genders.addAll(gender);
+        cmbAssists.setItems(genders);
     }
 }
