@@ -25,7 +25,7 @@ public class SendMailController {
 
     @FXML
     void sendOnAction(ActionEvent event) {
-        final String FROM = "rishithaw1@gmail.com";
+        final String FROM = "email";
 
         String subject = txtSubject.getText();
         String body = txtBody.getText();
@@ -37,7 +37,7 @@ public class SendMailController {
         sendEmailWithGmail(FROM, customerEmail, subject, body);
     }
     private void sendEmailWithGmail(String from, String to, String subject, String messageBody) {
-        String PASSWORD = "zdos qetc jljr isqg";
+        String PASSWORD = "password";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
