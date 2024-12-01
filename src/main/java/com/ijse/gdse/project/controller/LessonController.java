@@ -150,8 +150,8 @@ public class LessonController implements Initializable {
 
     @FXML
     void LoadIdOnAction(ActionEvent event) throws SQLException {
-        String lessonId =cmbStID.getSelectionModel().getSelectedItem();
-        StudentDTO studentDTO = studentModel.findById(lessonId);
+        String studentId =cmbStID.getSelectionModel().getSelectedItem();
+        StudentDTO studentDTO = studentModel.findById(studentId);
 
         if (studentDTO != null) {
             lblStName.setText(studentDTO.getName());
