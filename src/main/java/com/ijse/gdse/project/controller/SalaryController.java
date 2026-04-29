@@ -1,7 +1,6 @@
 package com.ijse.gdse.project.controller;
 
 import com.ijse.gdse.project.dto.SalaryDTO;
-import com.ijse.gdse.project.dto.StudentDTO;
 import com.ijse.gdse.project.dto.tm.SalaryTM;
 import com.ijse.gdse.project.model.SalaryModel;
 import javafx.collections.FXCollections;
