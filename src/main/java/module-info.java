@@ -3,7 +3,7 @@ module com.ijse.gdse.project {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.sql;
-    requires lombok;
+    requires static lombok;
     requires mysql.connector.j;
     requires net.sf.jasperreports.core;
     requires java.mail;
