@@ -80,7 +80,7 @@
       </ImageView>
       <Circle fx:id="cir" fill="WHITE" layoutX="808.0" layoutY="39.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <TextField fx:id="txtDOP" layoutX="613.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TableView layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="830.0">
+      <TableView fx:id="tblPayment" layoutX="14.0" layoutY="386.0" onMouseClicked="#onClickTable" prefHeight="200.0" prefWidth="830.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="85.60000419616699" text="Payment ID" />
           <TableColumn fx:id="colAmount" prefWidth="90.4000015258789" text="Amount" />
