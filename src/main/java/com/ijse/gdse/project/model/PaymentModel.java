@@ -146,6 +146,10 @@ public class PaymentModel {
         return new ArrayList<>(List.of("Cash", "Card"));
     }
 
+    public ArrayList<String> getAllPlanMethods() {
+        return new ArrayList<>(List.of("Full amount", "Installments"));
+    }
+
     public ArrayList<String> getAllDiscountOptions() {
         return new ArrayList<>(List.of("0", "10", "20"));
     }

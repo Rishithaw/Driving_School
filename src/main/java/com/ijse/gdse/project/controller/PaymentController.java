@@ -47,6 +47,9 @@ public class PaymentController implements Initializable {
     private ComboBox<String> cmbPayment;
 
     @FXML
+    private ComboBox<String> cmbPlanMethod;
+
+    @FXML
     private TableColumn<PaymentTM, String> colAmount;
 
     @FXML
@@ -134,6 +137,7 @@ public class PaymentController implements Initializable {
             txtStudentName.setText(paymentTM.getStudentId());
             txtDOP.setText(paymentTM.getPaidDate().toString());
             cmbPayment.setValue(paymentTM.getPaymentMethod());
+            cmbPlanMethod.setValue(paymentTM.getPlanMethod());
             cmbDiscount.setValue(paymentTM.getDiscount());
             txtDiscount.setText(paymentTM.getDiscountPrice());
 
@@ -184,6 +188,7 @@ public class PaymentController implements Initializable {
         loadNextPaymentIds();
         loadTableData();
         loadPaymentOptions();
+        loadPlanMethods();
         loadDiscountOptions();
 
         btnSave.setDisable(false);
@@ -195,6 +200,7 @@ public class PaymentController implements Initializable {
         txtDOP.clear();
         txtDiscount.clear();
         cmbPayment.setValue(null);
+        cmbPlanMethod.setValue(null);
         cmbDiscount.setValue(null);
     }
 
@@ -205,6 +211,7 @@ public class PaymentController implements Initializable {
         String studentId = txtStudentName.getText();
         Date paidDate = parseDate(txtDOP.getText());
         String paymentMethod = cmbPayment.getValue();
+        String planMethod = cmbPlanMethod.getValue();
         String discount = cmbDiscount.getValue();
         String discountPrice = getDiscountPrice(amount, discount);
 
@@ -214,7 +221,7 @@ public class PaymentController implements Initializable {
                 paidDate,
                 DEFAULT_ADMIN_ID,
                 planId,
-                paymentMethod,
+                planMethod,
                 amount,
                 discount,
                 discountPrice,
@@ -275,6 +282,12 @@ public class PaymentController implements Initializable {
         ObservableList<String> paymentOptions = FXCollections.observableArrayList();
         paymentOptions.addAll(paymentModel.getAllPaymentOptions());
         cmbPayment.setItems(paymentOptions);
+    }
+
+    private void loadPlanMethods() {
+        ObservableList<String> planMethods = FXCollections.observableArrayList();
+        planMethods.addAll(paymentModel.getAllPlanMethods());
+        cmbPlanMethod.setItems(planMethods);
     }
 
     private void loadDiscountOptions() {
