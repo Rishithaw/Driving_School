@@ -1,6 +1,5 @@
 package com.ijse.gdse.project.model;
 
-import com.ijse.gdse.project.dto.StudentDTO;
 import com.ijse.gdse.project.dto.TestDTO;
 import com.ijse.gdse.project.util.CrudUtil;
 

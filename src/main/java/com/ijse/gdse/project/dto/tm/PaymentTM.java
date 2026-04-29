@@ -11,10 +11,13 @@ import java.sql.Date;
 @ToString
 public class PaymentTM {
     private String paymentId;
-    private String amount;
-    private String studentName;
-    private Date paymentDate;
-    private String paymentOption;
+    private String paymentMethod;
+    private Date paidDate;
+    private String adminId;
+    private String planId;
+    private String planMethod;
+    private String price;
     private String discount;
     private String discountPrice;
+    private String studentId;
 }
