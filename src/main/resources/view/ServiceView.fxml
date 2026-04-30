@@ -59,10 +59,10 @@
          </font>
       </Label>
       <TextField fx:id="txtCost" layoutX="477.0" layoutY="274.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <TableView fx:id="tblService" layoutX="5.0" layoutY="386.0" prefHeight="200.0" prefWidth="842.0">
+      <TableView fx:id="tblService" layoutX="5.0" layoutY="386.0" onMouseClicked="#onClickTable" prefHeight="200.0" prefWidth="842.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="103.20001029968262" text="Service ID" />
-          <TableColumn prefWidth="200.00000762939453" text="Date Of Service" />
+          <TableColumn fx:id="colDate" prefWidth="200.00000762939453" text="Date Of Service" />
             <TableColumn fx:id="colReason" prefWidth="377.6000061035156" text="Reason" />
             <TableColumn fx:id="colCost" prefWidth="160.00006103515625" text="Cost" />
         </columns>
