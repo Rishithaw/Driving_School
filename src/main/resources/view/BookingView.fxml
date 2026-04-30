@@ -33,12 +33,12 @@
             <Font name="Book Antiqua" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="116.0" text="Time">
+      <Label layoutX="60.0" layoutY="116.0" text="Instructor ID">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="60.0" layoutY="153.0" prefHeight="26.0" prefWidth="190.0" promptText="HH:MM" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
+      <TextField fx:id="txtName" layoutX="60.0" layoutY="153.0" prefHeight="26.0" prefWidth="190.0" promptText="I001" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <Label layoutX="444.0" layoutY="116.0" text="Date">
          <font>
             <Font size="20.0" />
@@ -56,25 +56,25 @@
       </Label>
       <TextField fx:id="txtDuration" layoutX="444.0" layoutY="153.0" prefHeight="26.0" prefWidth="190.0" promptText="mm/dd/yyyy" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
       <TextField fx:id="txtReason" layoutX="444.0" layoutY="264.0" prefHeight="28.0" prefWidth="190.0" promptText="If Applicable " style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label layoutX="60.0" layoutY="231.0" text="Student Name">
+      <Label layoutX="60.0" layoutY="231.0" managed="false" text="Student Name" visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStName" layoutX="60.0" layoutY="264.0" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" />
-      <Label fx:id="lblStID" layoutX="204.0" layoutY="231.0" text="1">
+      <TextField fx:id="txtStName" layoutX="60.0" layoutY="264.0" managed="false" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: none; -fx-border-color: #000000; -fx-border-width: 0 0 1px 0;" visible="false" />
+      <Label fx:id="lblStID" layoutX="204.0" layoutY="231.0" managed="false" text="1" visible="false">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="834.0">
+      <TableView fx:id="tblBooking" layoutX="14.0" layoutY="386.0" onMouseClicked="#onClickTable" prefHeight="200.0" prefWidth="834.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="79.99996757507324" text="Booking ID" />
-          <TableColumn fx:id="colTime" prefWidth="110.39997100830078" text="Time" />
+          <TableColumn fx:id="colTime" prefWidth="150.0" text="Instructor ID" />
             <TableColumn fx:id="colDate" prefWidth="109.60003662109375" text="Date" />
-            <TableColumn fx:id="colStID" prefWidth="90.39996337890625" text="Student ID" />
-            <TableColumn fx:id="colStName" prefWidth="212.00003051757812" text="Student Name" />
-            <TableColumn fx:id="colReason" prefWidth="236.00006103515625" text="Reschedule Reason" />
+            <TableColumn fx:id="colStID" prefWidth="0.0" text="Student ID" visible="false" />
+            <TableColumn fx:id="colStName" prefWidth="0.0" text="Student Name" visible="false" />
+            <TableColumn fx:id="colReason" prefWidth="500.0" text="Reschedule Reason" />
         </columns>
       </TableView>
       <HBox alignment="CENTER_RIGHT" layoutX="539.0" layoutY="339.0" spacing="10.0">
